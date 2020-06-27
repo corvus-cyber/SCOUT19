@@ -16,7 +16,7 @@ Notes: when user inputs location, save to localStorage so they can return to the
 USER STORY"
 as an end user
 i want to see covid - 19 outbreaks and confirmed outbreaks by location
-so that i get up to date stats and feel good in a depressing time
+so that i get up to date stats
 
 
 NOTES:
@@ -27,4 +27,15 @@ Geolocation Server Side API: https://rapidapi.com/damngoodapis/api/geolocation
 Geolocation 3rdPartAPI: https://cdnjs.com/libraries/geolocator
 Globe Model 3rdPartAPI: http://www.webglearth.org/
 
+## Acceptance criteria:
+- GIVEN a choice of current location or input box for manuel selection
+- WHEN the user chooses a location
+- THEN the user is provided with most up to date covid-19 info
 
+maybe
+- GIVEN user chooses to mannually typing in location
+- WHEN the user is typing
+- THEN a automatic list of location suggestion list shows in a drop down menu
+
+
+ 
