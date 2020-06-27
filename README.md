@@ -1,6 +1,10 @@
 # Group_Project1
 MVP
-mobile based application that dynamically displays covid-19 data based on location -Dilan
+mobile based application that dynamically displays covid-19 data based on location. https://rapidapi.com/Gramzivi/api/covid-19-data  could use to search by country  -Dilan
+https://covidtracking.com/   US specific 
+https://rapidapi.com/Yatko/api/coronavirus-map?endpoint=apiendpoint_5c9df527-2111-4553-a09e-e6098736e1d8  Map/graph to be used as banner?
+Third Party:
+Notes: when user inputs location, save to localStorage so they can return to their info automatically
 
 
 as an end user
