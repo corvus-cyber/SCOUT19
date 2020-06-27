@@ -7,10 +7,11 @@ Third Party:
 Notes: when user inputs location, save to localStorage so they can return to their info automatically
 
 
+USER STORY"
 as an end user
 i want to see covid - 19 outbreaks and confirmed outbreaks by location
 so that i get up to date stats and feel good in a depressing time
--Group
+
 
 
 
