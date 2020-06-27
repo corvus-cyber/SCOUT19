@@ -45,3 +45,7 @@ Server Side APIs RESOURCES:
 https://covidtracking.com/   US specific 
 https://rapidapi.com/Yatko/api/coronavirus-map?endpoint=apiendpoint_5c9df527-2111-4553-a09e-e6098736e1d8  Map/graph to be used as banner?
 Geolocation Server Side API: https://rapidapi.com/damngoodapis/api/geolocation
+
+# Team:
+FRONT END: Cameron Walker, Wyatt Hancock
+BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), David Grant (Geolocator api)
