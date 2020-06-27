@@ -13,5 +13,7 @@ i want to see covid - 19 outbreaks and confirmed outbreaks by location
 so that i get up to date stats and feel good in a depressing time
 
 
+NOTES:
+- User is able to choose data based on current location or input box for manuel selection
 
 
