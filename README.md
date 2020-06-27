@@ -1,11 +1,17 @@
-# Group_Project1
-MVP
-mobile based application that dynamically displays covid-19 data based on location. https://rapidapi.com/Gramzivi/api/covid-19-data  could use to search by country  -Dilan
+# Title
+--PANDEMIC SCOUT--
+
+# Description
+Mobile based application that dynamically displays covid-19 data based on state. 
+
+
+
+https://rapidapi.com/Gramzivi/api/covid-19-data  could use to search by country  -Dilan
 https://covidtracking.com/   US specific 
 https://rapidapi.com/Yatko/api/coronavirus-map?endpoint=apiendpoint_5c9df527-2111-4553-a09e-e6098736e1d8  Map/graph to be used as banner?
 
 
-USER STORY"
+# USER STORY"
 as an end user
 i want to see covid - 19 outbreaks and confirmed outbreaks by location
 so that i get up to date stats
@@ -16,7 +22,7 @@ so that i get up to date stats
 - WHEN the user chooses a location
 - THEN the user is provided with most up to date covid-19 info
 - AND user is given the option to save this as default location (local storage)
-- 
+
 
 maybe
 - GIVEN user chooses to mannually typing in location
