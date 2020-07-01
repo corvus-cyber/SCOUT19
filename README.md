@@ -49,3 +49,5 @@ Geolocation Server Side API: https://rapidapi.com/damngoodapis/api/geolocation
 # Team:
 FRONT END: Cameron Walker, Wyatt Hancock
 BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), David Grant (Geolocator api)
+
+"cameron testing"
