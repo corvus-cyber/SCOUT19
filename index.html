@@ -21,68 +21,55 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Scout19</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row interactive-map">
-            <div id="map" style="width: 300px; height: 300px;"></div>
-          </div>
-        <!--National Info-->
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Scout19</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row interactive-map">
+                <div id="map" style="width: 300px; height: 300px;"></div>
+            </div>
+            <!--National Info-->
 
-        <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <i class="material-icons prefix">location_city</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">Enter Location</label>
-                </div>
-                </div>
+            <div class="row">
+                <form class="col s12">
                 <div class="row">
-                    <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="state-search">search
-                        <i class="material-icons right">location_searching</i>
-                      </button>
-                </div>
-            </form>
-            
+                    <div class="input-field col s6">
+                    <i class="material-icons prefix">location_city</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Enter Location</label>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="state-search">search
+                            <i class="material-icons right">location_searching</i>
+                        </button>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="row">
+                <div class="col s10">
+                    <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="current-location">Use Current Location </button>
+                </div> 
+            </div>
         </div>
-        <div class="row">
-            <div class="col s10">
-                <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="current-location">Use Current Location </button>
-            </div> 
-        </div>
-    </div>
-    <!--Footer-->
+    </main>
+    <footer class="page-footer">
+        Created by Team Bowie @2020
+    </footer>
 
-    <!-- <div class="container">
-        <div class="row">
-            <div class="header logo col-4">logo</div>
-            <div class="header hamburger col-4">navbar</div>
-        </div>
+ 
 
-
-        <div class="inputBox">Please choose your Location</div>
-        <br><br><br><br><br><br><br>
-        <button class="button">Use Current Location</button>
-        <div class="mapheader">US Total Count</div>
-        <button class="inputBox">us map</button>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-        <div class="row">
-            <div class="header logo col-4">more space</div>
-            <div class="footer copyright col-12">footer Wookie 2020</div>
-        </div>
-    </div> -->
 
 
 <script src="javascript.js"></script>
