@@ -15,6 +15,16 @@ main {
     flex: 1 0 auto;
     padding-top: 5%;
 }
+h2 {
+    font-family: 'Saira Condensed', sans-serif; 
+}
+h5 {
+    font-family: 'Saira Condensed', sans-serif; 
+}
+/*This class will be used to make parts of the html disappear when necesscary, add it to*/
+.evaporate {
+    display: none;
+}
 
 .page-footer {
     background-color: steelblue;
