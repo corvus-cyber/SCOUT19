@@ -7,15 +7,16 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+.brand-logo{
+    font-family: 'Orbitron', sans-serif;
+}
 
 main {
     flex: 1 0 auto;
+    padding-top: 5%;
 }
 
 .page-footer {
     background-color: steelblue;
 }
 
-.interactive-map{
-    padding-top: 5%;
-}
