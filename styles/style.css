@@ -15,8 +15,38 @@ main {
     flex: 1 0 auto;
     padding-top: 5%;
 }
+.interactive-map{
+    max-width: 98%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px; 
+}
+
+.national-data{
+    max-width: 98%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;   
+}
+
+.state-data{
+    max-width: 98%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;
+}
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
+}
+.location-entry{
+    max-width: 98%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;
 }
 h5 {
     font-family: 'Saira Condensed', sans-serif; 
