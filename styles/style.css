@@ -19,7 +19,7 @@ main {
     max-width: 98%;
     background-color: white;
     border-radius: 5%;
-    padding: 5%; 
+    padding: 10%; 
     box-shadow: 0 0 20px; 
 }
 
@@ -47,6 +47,7 @@ h2 {
     border-radius: 5%;
     padding: 5%; 
     box-shadow: 0 0 20px;
+    text-align: center;
 }
 h5 {
     font-family: 'Saira Condensed', sans-serif; 
@@ -58,5 +59,6 @@ h5 {
 
 .page-footer {
     background-color: steelblue;
+    text-align: center;
 }
 
