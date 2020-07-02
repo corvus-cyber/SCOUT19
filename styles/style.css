@@ -58,6 +58,9 @@ h5 {
     display: none;
 }
 
+#current-location{
+    margin-top: 5%;
+}
 .page-footer {
     background-color: steelblue;
     text-align: center;
