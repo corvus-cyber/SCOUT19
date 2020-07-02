@@ -7,12 +7,62 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+.brand-logo{
+    font-family: 'Orbitron', sans-serif;
+}
 
 main {
     flex: 1 0 auto;
 }
+.interactive-map{
+    max-width: 100%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 10%; 
+    box-shadow: 0 0 20px; 
+    margin: 4%;  
+}
 
+.national-data{
+    max-width: 100%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;
+    margin: 4%   
+}
+
+.state-data{
+    max-width: 100%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;
+}
+h2 {
+    font-family: 'Saira Condensed', sans-serif; 
+}
+.location-entry{
+    max-width: 100%;
+    background-color: white;
+    border-radius: 5%;
+    padding: 5%; 
+    box-shadow: 0 0 20px;
+    text-align: center;
+}
+h5 {
+    font-family: 'Saira Condensed', sans-serif; 
+}
+/*This class will be used to make parts of the html disappear when necesscary, add it to*/
+.evaporate {
+    display: none;
+}
+
+#current-location{
+    margin-top: 5%;
+}
 .page-footer {
     background-color: steelblue;
+    text-align: center;
 }
 

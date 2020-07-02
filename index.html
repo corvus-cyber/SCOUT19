@@ -15,6 +15,10 @@
     <script src="scripts/usMap/lib/raphael.js"></script>
     <script src="scripts/usMap/jquery.usmap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Font type for header-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <!--Font type for headers, buttons, and subheaders-->
+    <link href="https://fonts.googleapis.com/css2?family=Notable&family=Saira+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>SCOUT19</title>
 
@@ -23,50 +27,119 @@
 <body>
     <header>
         <nav>
+            <!--Navigation bar-->
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Scout19</a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                </ul>
+              <a href="#!" class="brand-logo">SCOUT19</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a href="mobile.html">Mobile</a></li>
+              </ul>
             </div>
-        </nav>
+          </nav>
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
     </header>
     <main>
         <div class="container">
-            <div class="row interactive-map">
-                <div id="map" style="width: 300px; height: 300px;"></div>
-            </div>
-            <!--National Info-->
-
-            <div class="row">
-                <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                    <i class="material-icons prefix">location_city</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Enter Location</label>
+            <!--Interactive map-->
+            <div class="row ">
+                <div class="col s12 m5 l6 interactive-map">
+                    <div id="map" style="width: 300px; height: 300px;"></div>
+                </div>
+                <!--National Info-->
+                <div class="col s12 m5 l5 national-data">
+                    <div class="row nat-header"> 
+                        <h2>National Info</h2>
                     </div>
+                    <!--National cases in the last day-->
+                    <div class="row nat-day">
+    
+    
+                    </div>
+                    <!--National positive cases-->
+                    <div class="row state-pos">
+    
+                    </div>
+                    <!--National number of those hospitalized-->
+                    <div class="row nat-hospital">
+    
+                    </div>
+                    <!--National number of those recovered-->
+                    <div class="row recovered">
+    
+                    </div>
+                    <!--National number of those dead-->
+                    <div class="row deaths">
+    
+                    </div>
+                </div>
+            </div>
+            <!--State Info-->
+            <div class="row state-data evaporate">
+                <div class="row state-header"> 
+                    <h2>State Info</h2>
+                </div>
+                <!--State cases in the last day-->
+                <div class="row state-day">
+
+                </div>
+                <!--State positive cases-->
+                <div class="row state-pos">
+
+                </div>
+                <!--State number of those hospitalized-->
+                <div class="row state-hospital">
+
+                </div>
+                <!--State number of those recovered-->
+                <div class="row state-recov">
+
+                </div>
+                <!--State number of those dead-->
+                <div class="row state-deaths">
+
+                </div>
+            </div>
+            <!--User inputs state name to search for specific info-->
+            <div class="row location-entry">
+                <form class="col s12">
+                    <div class="row">
+                        <h5>Enter Desired State to See Location Specific Info</h5>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_city</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Location</label>
                     </div>
                     <div class="row">
-                        <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="state-search">search
-                            <i class="material-icons right">location_searching</i>
-                        </button>
+                        <div class="col s12">
+                            <!--button to search using user's input-->
+                            <button class="btn-large waves-effect waves-light grey" type="submit" name="action" id="state-search">search
+                                <i class="material-icons right">location_searching</i>
+                            </button>
+                        </div>
+                        <div class="col s12">
+                            <button class="btn-large waves-effect waves-light grey" type="submit" name="action" id="current-location">Use Current Location </button>
+                        </div> 
                     </div>
                 </form>
                 
             </div>
+            <!--Button to search using user's IP address-->
             <div class="row">
-                <div class="col s10">
-                    <button class="btn-large waves-effect waves-light grey" type="submit" name="action" class="current-location">Use Current Location </button>
-                </div> 
+                
             </div>
         </div>
-        <!--hello world-->
     </main>
     <footer class="page-footer">
-        Created by Team Bowie @2020
+        Team Bowie ©2020
     </footer>
 
  
@@ -77,6 +150,9 @@
     
    <script src="scripts/mapControler.js"></script>
    <script src="./scripts/geolocator.js"></script>
+    <script src="scripts/javascript.js" ></script> 
+    <script src="scripts/mapControler.js"></script>
+    <script src="./scripts/geolocator.js"></script>
 </body>
 
 </html>
