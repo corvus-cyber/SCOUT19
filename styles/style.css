@@ -13,26 +13,27 @@ body {
 
 main {
     flex: 1 0 auto;
-    padding-top: 5%;
 }
 .interactive-map{
-    max-width: 98%;
+    max-width: 100%;
     background-color: white;
     border-radius: 5%;
     padding: 10%; 
     box-shadow: 0 0 20px; 
+    margin: 4%;  
 }
 
 .national-data{
-    max-width: 98%;
+    max-width: 100%;
     background-color: white;
     border-radius: 5%;
     padding: 5%; 
-    box-shadow: 0 0 20px;   
+    box-shadow: 0 0 20px;
+    margin: 4%   
 }
 
 .state-data{
-    max-width: 98%;
+    max-width: 100%;
     background-color: white;
     border-radius: 5%;
     padding: 5%; 
@@ -42,7 +43,7 @@ h2 {
     font-family: 'Saira Condensed', sans-serif; 
 }
 .location-entry{
-    max-width: 98%;
+    max-width: 100%;
     background-color: white;
     border-radius: 5%;
     padding: 5%; 
