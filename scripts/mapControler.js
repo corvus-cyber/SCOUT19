@@ -1,4 +1,6 @@
-$('#map').usmap({
+$(document).ready(function(){
+
+  $('#map').usmap({
     // The click action
     click: function(event, data) {
       $('#clicked-state')
@@ -7,4 +9,10 @@ $('#map').usmap({
       console.log(data.name)
       }
   });
+})
+
+
+
+
+
 
