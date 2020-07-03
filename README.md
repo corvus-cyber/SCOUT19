@@ -51,3 +51,13 @@ FRONT END: Cameron Walker, Wyatt Hancock
 BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), David Grant (Geolocator api)
 
 "cameron testing"
+
+
+
+
+
+## Special thanks and accreditations
+
+
+Awesome rapheal/jquery/svg map that made my life so easy.
+https://newsignature.github.io/us-map/

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 let stateGrades = [
-  
+
 ]
 
   $('#map').usmap({
@@ -9,23 +9,13 @@ let stateGrades = [
     click: function(event, data) {
       $('#clicked-state')
         .text('You clicked: '+data.name)
-       
-      
-
-
 
       console.log(data.name)
-      
-    
-    
-    
-    
-    
-    
-    
-    
     },
       
+    
+
+
     stateSpecificStyles: {
       'MD': {fill: 'yellow'},
       'VA': {fill: 'teal'}
@@ -39,6 +29,7 @@ let stateGrades = [
   
   
     });
+    module.exports = require('./lib/point2place')
 })
 
 
