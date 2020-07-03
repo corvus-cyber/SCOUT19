@@ -1,8 +1,14 @@
 $(document).ready(function(){
 
-let stateGrades = [
+  $.ajax({
+    url: "https://covidtracking.com/api/v1/states/current.json",
+    method: "GET"
+  })
+  .then(function(response) {
+  console.log(response);
+   });
 
-]
+
 
   $('#map').usmap({
     // The click action
@@ -29,7 +35,6 @@ let stateGrades = [
   
   
     });
-    module.exports = require('./lib/point2place')
 })
 
 
