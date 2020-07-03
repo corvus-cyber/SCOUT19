@@ -1,4 +1,6 @@
-//event listener for the navbar, required by materialize 
+$(document).ready(function(){
+
+  //event listener for the navbar, required by materialize 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
   var instances = M.Sidenav.init(elems, options);
@@ -17,13 +19,15 @@ $('#map').usmap({
 
   $("#state-search").click(function(){
     //Will need an if statement so that it does not run if there is no value in the state search
-    $(".national-data").removeClass("evaporate");
-    $(".state-data").addClass("evaporate");
-    $(".location-entry").addClass(".evaporate");
+    $(".national-data").addClass("evaporate");
+    $(".state-data").removeClass("evaporate");
+    $(".location-entry").addClass("evaporate");
   })
 
   $("#current-location").click(function(){
-    $(".national-data").removeClass("evaporate");
-    $(".state-data").addClass("evaporate");
-    $(".location-entry").addClass(".evaporate");
+    $(".national-data").addClass("evaporate");
+    $(".state-data").removeClass("evaporate");
+    $(".location-entry").addClass("evaporate");
   })
+
+})
