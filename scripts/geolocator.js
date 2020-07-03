@@ -13,19 +13,9 @@ $(document).ready(function() {
 
     }).then(function(response) {
       console.log(response);
-      var state = response.state_prov;
+      var state = response.state_prov.substring(0,2).toLowerCase();
       console.log(state)
-      // state = JSON.stringify(state)
-      // var statefirsttwoinitials = state.str.substring(0,2);
-      // console.log(statefirsttwoinitials)
-      // console.log(statefirsttwoinitials);
-
-
-
+      
     });
-
-
   })
-
-   
 })
