@@ -2,6 +2,7 @@
     background-color: steelblue;
 }
 
+
 body {
     display: flex;
     min-height: 100vh;
@@ -9,6 +10,7 @@ body {
 }
 .brand-logo{
     font-family: 'Orbitron', sans-serif;
+
 }
 
 main {
@@ -18,10 +20,11 @@ main {
     max-width: 100%;
     background-color: white;
     border-radius: 5%;
-    padding: 10%; 
+    padding: 5%; 
     box-shadow: 0 0 20px; 
-    margin: 4%;  
+    margin: 4%;
 }
+
 
 .national-data{
     max-width: 100%;
@@ -29,7 +32,9 @@ main {
     border-radius: 5%;
     padding: 5%; 
     box-shadow: 0 0 20px;
-    margin: 4%   
+    margin: 4%;
+    font-size: 20px;
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 .state-data{
@@ -38,10 +43,14 @@ main {
     border-radius: 5%;
     padding: 5%; 
     box-shadow: 0 0 20px;
+    font-size: 20px;
+    font-family: 'Saira Condensed', sans-serif;
 }
+
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
 }
+
 .location-entry{
     max-width: 100%;
     background-color: white;
@@ -50,8 +59,29 @@ h2 {
     box-shadow: 0 0 20px;
     text-align: center;
 }
+
+.form {
+    display: inline;
+    text-align: center;
+}
+.input-field{
+ text-align: center;
+}
+
+/*  .form-inline {
+      display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  */
+  
+
 h5 {
     font-family: 'Saira Condensed', sans-serif; 
+}
+ 
+#map{
+    margin: 1%;
 }
 /*This class will be used to make parts of the html disappear when necesscary, add it to*/
 .evaporate {
@@ -66,5 +96,92 @@ h5 {
 .page-footer {
     background-color: steelblue;
     text-align: center;
+}
+
+
+
+.container .row .interactive-map #map {
+    height: 300px;
+    width: auto;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 340px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #map {
+        width: 320px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 400px;
+    }
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .container .row .interactive-map #map {
+        height: 200px;
+        width: 250px;
+    }
 }
 

@@ -28,7 +28,7 @@
         <nav>
             <!--Navigation bar-->
             <div class="nav-wrapper">
-              <a href="#!" class="brand-logo">SCOUT19</a>
+              <a href="" class="brand-logo">SCOUT19</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="sass.html">Sass</a></li>
@@ -46,14 +46,15 @@
           </ul>
     </header>
     <main>
+        <!--  -->
         <div class="container">
             <!--Interactive map-->
-            <div class="row ">
-                <div class="col s12 m5 l6 interactive-map">
-                    <div id="map" style="width: 300px; height: 300px;"></div>
+            <div class="row">
+                <div class="col s12 m12 l7 interactive-map responsive-img">
+                    <div id="map"></div>
                 </div>
                 <!--National Info-->
-                <div class="col s12 m5 l5 national-data">
+                <div class="col s12 m12 l4 national-data">
                     <div class="row nat-header"> 
                         <h2>National Info</h2>
                     </div>
@@ -102,15 +103,17 @@
             </div>
             <!--User inputs state name to search for specific info-->
             <div class="row location-entry">
-                <form class="col s12">
+                <form class="col s12 form">
                     <div class="row">
                         <h5>Enter Desired State to See Location Specific Info</h5>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="row">
+                    <div class="input-field col s6" >
                         <i class="material-icons prefix">location_city</i>
                         <input id="icon_prefix" type="text" class="validate">
                         <label for="icon_prefix">Location</label>
                     </div>
+
                     <div class="row">
                         <div class="col s12">
                             <!--button to search using user's input-->
