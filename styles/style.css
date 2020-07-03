@@ -1,4 +1,4 @@
-.nav-wrapper{
+.nav-wrapper {
     background-color: steelblue;
 }
 
@@ -7,56 +7,56 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
-.brand-logo{
+
+.brand-logo {
     font-family: 'Orbitron', sans-serif;
 }
 
 main {
     flex: 1 0 auto;
 }
-.interactive-map{
+
+.interactive-map {
     max-width: 100%;
     background-color: white;
     border-radius: 5%;
-    padding: 10%; 
-    box-shadow: 0 0 20px; 
+    padding: 10%;
+    box-shadow: 0 0 20px;
     margin: 4%;
 }
-#map {
-    width: 50%;
-    height: 50%;
-}
 
-.national-data{
+
+
+.national-data {
     max-width: 100%;
     background-color: white;
     border-radius: 5%;
-    padding: 5%; 
+    padding: 5%;
     box-shadow: 0 0 20px;
     margin: 4%;
     font-size: 20px;
     font-family: 'Saira Condensed', sans-serif;
 }
 
-.state-data{
+.state-data {
     max-width: 100%;
     background-color: white;
     border-radius: 5%;
-    padding: 5%; 
+    padding: 5%;
     box-shadow: 0 0 20px;
     font-size: 20px;
     font-family: 'Saira Condensed', sans-serif;
 }
 
 h2 {
-    font-family: 'Saira Condensed', sans-serif; 
+    font-family: 'Saira Condensed', sans-serif;
 }
 
-.location-entry{
+.location-entry {
     max-width: 100%;
     background-color: white;
     border-radius: 5%;
-    padding: 5%; 
+    padding: 5%;
     box-shadow: 0 0 20px;
     text-align: center;
 }
@@ -65,8 +65,9 @@ h2 {
     display: inline;
     text-align: center;
 }
-.input-field{
- text-align: center;
+
+.input-field {
+    text-align: center;
 }
 
 /*  .form-inline {
@@ -75,10 +76,10 @@ h2 {
     align-items: center;
   }
   */
-  
+
 
 h5 {
-    font-family: 'Saira Condensed', sans-serif; 
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 /*This class will be used to make parts of the html disappear when necesscary, add it to*/
@@ -86,7 +87,7 @@ h5 {
     display: none;
 }
 
-#current-location{
+#current-location {
     margin-top: 2%;
 }
 
@@ -96,6 +97,57 @@ h5 {
     text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
-   
-  }
+.container .row .interactive-map #map {
+    height: 300px;
+    width: auto;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .container .row .interactive-map #map {
+        height: 400px;
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .container .row .interactive-map #map {
+        height: 400px;
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .container .row .interactive-map #map {
+        height: 330px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #map {
+        width: 330px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container .row .interactive-map #map {
+        height: 650px;
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container .row .interactive-map #map {
+        height: 500px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 300px;
+    }
+}
