@@ -13,8 +13,15 @@ $(document).ready(function() {
 
     }).then(function(response) {
       console.log(response);
+      var state = response.state_prov;
+      console.log(state)
+      // state = JSON.stringify(state)
+      // var statefirsttwoinitials = state.str.substring(0,2);
+      // console.log(statefirsttwoinitials)
+      // console.log(statefirsttwoinitials);
 
-      
+
+
     });
 
 
