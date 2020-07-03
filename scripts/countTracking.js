@@ -1,7 +1,8 @@
 $(document).ready(function(){
     //Will need an if statement so that it does not run if there is no value in the state search
 
-  $("#current-location").click(function(){
+  $("#current-location").click(function(event){
+    event.preventDefault();
     if ($(".validate").val() === "") {
       alert("Please enter state initial")
       } else {
@@ -10,7 +11,8 @@ $(document).ready(function(){
       }
   })
 
-  $("#state-search").click(function(){
+  $("#state-search").click(function(event){
+    event.preventDefault();
     if ($(".validate").val() === "") {
       alert("Please enter state initial")
       } else {
@@ -32,7 +34,7 @@ function getStateData(){
     $(".validate").text("Please enter a state initial");
   }
   else {
-    var state = $(".validate").val();
+    var state = $(".validate").val().toLowerCase();
     console.log(state);
     $.ajax({
       url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
