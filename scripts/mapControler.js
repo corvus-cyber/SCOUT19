@@ -6,7 +6,25 @@ $(document).ready(function(){
   })
   .then(function(response) {
   console.log(response);
+    let caseUpDay = (response[0].totalTestResults/response[0].positiveIncrease)
+    console.log(caseUpDay)
+    console.log(response[0].state)
+    console.log(response[0].positiveIncrease)
+    console.log(response[0].totalTestResults)
+    
+    for (let i = 0; i < 56; i++) {
+      let stCode = response[i].state
+      if (stCode = "DC") {
+        
+      }
+      
+    }
+
+
+
+  
    });
+
 
 
 
