@@ -15,15 +15,3 @@ $('#map').usmap({
   });
 
 
-  $("#state-search").click(function(){
-    //Will need an if statement so that it does not run if there is no value in the state search
-    $(".national-data").removeClass("evaporate");
-    $(".state-data").addClass("evaporate");
-    $(".location-entry").addClass(".evaporate");
-  })
-
-  $("#current-location").click(function(){
-    $(".national-data").removeClass("evaporate");
-    $(".state-data").addClass("evaporate");
-    $(".location-entry").addClass(".evaporate");
-  })
