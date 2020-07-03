@@ -20,7 +20,11 @@ main {
     border-radius: 5%;
     padding: 10%; 
     box-shadow: 0 0 20px; 
-    margin: 4%;  
+    margin: 4%;
+}
+#map {
+    width: 50%;
+    height: 50%;
 }
 
 .national-data{
@@ -29,7 +33,9 @@ main {
     border-radius: 5%;
     padding: 5%; 
     box-shadow: 0 0 20px;
-    margin: 4%   
+    margin: 4%;
+    font-size: 20px;
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 .state-data{
@@ -38,10 +44,14 @@ main {
     border-radius: 5%;
     padding: 5%; 
     box-shadow: 0 0 20px;
+    font-size: 20px;
+    font-family: 'Saira Condensed', sans-serif;
 }
+
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
 }
+
 .location-entry{
     max-width: 100%;
     background-color: white;
@@ -50,9 +60,27 @@ h2 {
     box-shadow: 0 0 20px;
     text-align: center;
 }
+
+.form {
+    display: inline;
+    text-align: center;
+}
+.input-field{
+ text-align: center;
+}
+
+/*  .form-inline {
+      display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  */
+  
+
 h5 {
     font-family: 'Saira Condensed', sans-serif; 
 }
+
 /*This class will be used to make parts of the html disappear when necesscary, add it to*/
 .evaporate {
     display: none;
@@ -68,3 +96,6 @@ h5 {
     text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+   
+  }
