@@ -13,3 +13,12 @@ $('#map').usmap({
         .parent().effect('highlight', {color: '#C7F464'}, 2000);
     }
   });
+
+
+  $("#state-search").click(function(){
+    $(".state-data").addClass("evaporate");
+  })
+
+  $("#current-location").click(function(){
+    $(".national-data").removeClass("evaporate");
+  })
