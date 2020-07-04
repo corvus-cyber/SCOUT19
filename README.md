@@ -62,7 +62,6 @@ BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), Da
 Awesome rapheal/jquery/svg map that made my life so easy.
 https://newsignature.github.io/us-map/
 
-## Credit
-State name to abbreviation function:  
-GitHub: calebgrove  
-Repository: https://gist.github.com/calebgrove/c285a9510948b633aa47
+
+The State-Name-to-Abbreviation function (function convert_state(name, to) {}) was retrieved from the following website:  
+https://joshlevinson.me/2013/03/29/javascript-to-convert-between-states-and-abbreviations/
