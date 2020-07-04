@@ -27,6 +27,23 @@ $(document).ready(function(){
     $(".location-entry").css("display","none");
   }
 
+    //retrieve national counts
+    $.ajax({
+      url: "https://covidtracking.com/api/v1/us/current.json",
+      method: "GET"
+    })
+      .then(function(response) {
+      console.log(response);
+      $(".nat-day").text("As of: " + response[0].date);
+      $(".nat-pos").text("Total confirmed cases: " + response[0].positive.toLocaleString()); 
+      $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease.toLocaleString());
+      $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently.toLocaleString());
+      $(".recovered").text("Cumulative Recovered: " + response[0].recovered.toLocaleString());
+      $(".deaths").text("Cumulative Death: " + response[0].death.toLocaleString());
+      });
+    })  
+
+    
 function getStateData(){
   //retrieve state counts
   if ($(".validate").val() === "") {
@@ -44,27 +61,12 @@ function getStateData(){
       console.log(response);
       $("#state-name").text(response.state);
       $(".state-day").text("Updated at: " + response.checkTimeEt);
-      $(".state-pos").text("Total confirmed Cases: " + response.positive);
-      $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease);
-      $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently);
-      $(".state-recov").text("Cumulative Recovered: " + response.recovered);
-      $(".state-deaths").text("Cumulative Death: " + response.death);
+      $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
+      $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
+      $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
+      $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
+      $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
       });    
   }     
 }
 
-  //retrieve national counts
-  $.ajax({
-    url: "https://covidtracking.com/api/v1/us/current.json",
-    method: "GET"
-  })
-    .then(function(response) {
-    console.log(response);
-    $(".nat-day").text("As of: " + response[0].date);
-    $(".nat-pos").text("Total confirmed cases: " + response[0].positive); 
-    $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease);
-    $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently);
-    $(".recovered").text("Cumulative Recovered: " + response[0].recovered);
-    $(".deaths").text("Cumulative Death: " + response[0].death);
-    });
-  })  
