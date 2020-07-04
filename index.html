@@ -59,6 +59,7 @@
                         <h2>National Info</h2>
                     </div>
                         <div class="row nat-data">
+                            <div>To ensure accuracy, data is updated between 5pm and 6pm Eastern Time every day.</div>
                             <!--Nation graph data-->
                             <div class="col s12 m6 l6 nat-chart">
                             </div>
@@ -67,6 +68,9 @@
                             </div>
                             <!--National positive cases-->
                             <div class="col s12 m5 l6 nat-pos">
+                            </div>
+                            <!-- National daily positive increase -->
+                            <div class="col s12 m5 l6 nat-pos-increase">
                             </div>
                             <!--National number of those hospitalized-->
                             <div class="col s12 m5 l6 nat-hospital">
@@ -85,11 +89,15 @@
                 <div class="row state-header"> 
                     <h2>State Info (<span id="state-name"></span>)</h2>
                 </div>
+                <div class="row">To ensure accuracy, data is updated between 5pm and 6pm Eastern Time every day.</div>
                 <!--State cases in the last day-->
                 <div class="row state-day">
                 </div>
                 <!--State positive cases-->
                 <div class="row state-pos">
+                </div>
+                <!-- State daily positive increase -->
+                <div class="row state-pos-increase">
                 </div>
                 <!--State number of those hospitalized-->
                 <div class="row state-hospital">
@@ -106,19 +114,22 @@
                 <form class="col s12 form">
                     <div class="row">
                         <h5>Enter Desired State to See Location Specific Info</h5>
+                        
                     </div>
                     <div class="row">
                     <div class="input-field col s6" >
                         <i class="material-icons prefix">location_city</i>
                         <input id="icon_prefix" type="text" class="validate">
                         <label for="icon_prefix">Location</label>
+                        
                     </div>
 
                     <div class="row">
                         <div class="col s12">
+                            
                             <!--button to search using user's input-->
                             <button class="btn-large waves-effect waves-light grey" type="submit" name="action" id="state-search">search
-                                <i class="material-icons right">location_searching</i>
+                                <!-- <i class="material-icons right">location_searching</i> -->
                             </button>
                         </div>
                         <div class="col s12">
@@ -128,18 +139,20 @@
                 </form>
             </div>
         </div>
+        
     </main>
     <footer class="page-footer">
         Team Bowie ©2020
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="scripts/usMap/lib/raphael.js"></script>
     <script src="scripts/usMap/jquery.usmap.js"></script>    
     <script src="scripts/javascript.js" ></script> 
     <script src="scripts/countTracking.js"></script>
     <script src="scripts/mapControler.js"></script>
-    <script src="./scripts/geolocator.js"></script>
+    <script src="scripts/geolocator.js"></script>
 
 </body>
 

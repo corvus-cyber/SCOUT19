@@ -6,7 +6,7 @@ Mobile based application that dynamically displays covid-19 data based on state.
 
 
 
-https://rapidapi.com/Gramzivi/api/covid-19-data  could use to search by country  -Dilan
+https://rapidapi.com/Gramzivi/api/covid-19-data  could use to search by country
 https://covidtracking.com/   US specific 
 https://rapidapi.com/Yatko/api/coronavirus-map?endpoint=apiendpoint_5c9df527-2111-4553-a09e-e6098736e1d8  Map/graph to be used as banner?
 
@@ -61,3 +61,8 @@ BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), Da
 
 Awesome rapheal/jquery/svg map that made my life so easy.
 https://newsignature.github.io/us-map/
+
+## Credit
+State name to abbreviation function:  
+GitHub: calebgrove  
+Repository: https://gist.github.com/calebgrove/c285a9510948b633aa47
