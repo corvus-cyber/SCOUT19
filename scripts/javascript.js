@@ -16,21 +16,4 @@ $('#map').usmap({
     }
   });
 
-
-<<<<<<< HEAD
-  $("#state-search").click(function(){
-    //Will need an if statement so that it does not run if there is no value in the state search
-    $(".national-data").addClass("evaporate");
-    $(".state-data").removeClass("evaporate");
-    $(".location-entry").addClass("evaporate");
-  })
-
-  $("#current-location").click(function(){
-    $(".national-data").addClass("evaporate");
-    $(".state-data").removeClass("evaporate");
-    $(".location-entry").addClass("evaporate");
-  })
-
 })
-=======
->>>>>>> 782eda16529d26fd97dcb944f528666a72fbb2e0
