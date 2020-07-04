@@ -17,6 +17,7 @@ $('#map').usmap({
   });
 
 
+<<<<<<< HEAD
   $("#state-search").click(function(){
     //Will need an if statement so that it does not run if there is no value in the state search
     $(".national-data").addClass("evaporate");
@@ -31,3 +32,5 @@ $('#map').usmap({
   })
 
 })
+=======
+>>>>>>> 782eda16529d26fd97dcb944f528666a72fbb2e0
