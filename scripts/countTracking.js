@@ -1,15 +1,76 @@
 $(document).ready(function(){
     //Will need an if statement so that it does not run if there is no value in the state search
 
-  $("#current-location").click(function(event){
-    event.preventDefault();
-    if ($(".validate").val() === "") {
-      alert("Please enter state initial")
-      } else {
-        displayStateData();
-        getStateData();
-      }
-  })
+// function stateAbbr(input){
+//   var states = [
+//     ['arizona', 'AZ'],
+//     ['alabama', 'AL'],
+//     ['alaska', 'AK'],
+//     ['arkansas', 'AR'],
+//     ['california', 'CA'],
+//     ['colorado', 'CO'],
+//     ['connecticut', 'CT'],
+//     ['delaware', 'DE'],
+//     ['florida', 'FL'],
+//     ['georgia', 'GA'],
+//     ['hawaii', 'HI'],
+//     ['idaho', 'ID'],
+//     ['illinois', 'IL'],
+//     ['indiana', 'IN'],
+//     ['iowa', 'IA'],
+//     ['kansas', 'KS'],
+//     ['kentucky', 'KY'],
+//     ['louisiana', 'LA'],
+//     ['maine', 'ME'],
+//     ['maryland', 'MD'],
+//     ['massachusetts', 'MA'],
+//     ['michigan', 'MI'],
+//     ['minnesota', 'MN'],
+//     ['mississippi', 'MS'],
+//     ['missouri', 'MO'],
+//     ['montana', 'MT'],
+//     ['nebraska', 'NE'],
+//     ['nevada', 'NV'],
+//     ['new hampshire', 'NH'],
+//     ['new jersey', 'NJ'],
+//     ['new mexico', 'NM'],
+//     ['new york', 'NY'],
+//     ['north carolina', 'NC'],
+//     ['north dakota', 'ND'],
+//     ['ohio', 'OH'],
+//     ['oklahoma', 'OK'],
+//     ['oregon', 'OR'],
+//     ['pennsylvania', 'PA'],
+//     ['rhode island', 'RI'],
+//     ['south carolina', 'SC'],
+//     ['south dakota', 'SD'],
+//     ['tennessee', 'TN'],
+//     ['texas', 'TX'],
+//     ['utah', 'UT'],
+//     ['vermont', 'VT'],
+//     ['virginia', 'VA'],
+//     ['washington', 'WA'],
+//     ['west virginia', 'WV'],
+//     ['wisconsin', 'WI'],
+//     ['wyoming', 'WY'],
+// ];
+//   for(i = 0; i < states.length; i++){
+//   if(input === states[i][0]){
+//       return(states[i][1]);
+//   }
+// }
+// }
+
+
+  // $("#current-location").click(function(event){
+  //   event.preventDefault();
+  //   if ($(".validate").val() === "") {
+  //     alert("Please enter state initial")
+  //     } else {
+  //       displayStateData();
+  //       // getStateData();
+  //     }
+  // })
 
   $("#state-search").click(function(event){
     event.preventDefault();
@@ -43,9 +104,9 @@ $(document).ready(function(){
       $(".recovered").text("Cumulative Recovered: " + response[0].recovered.toLocaleString());
       $(".deaths").text("Cumulative Death: " + response[0].death.toLocaleString());
       });
-    })  
 
-    
+
+
 function getStateData(){
   //retrieve state counts
   if ($(".validate").val() === "") {
@@ -54,7 +115,8 @@ function getStateData(){
   }
   else {
     var state = $(".validate").val().toLowerCase();
-    console.log(state);
+    // var state = stateAbbr(userInput);
+    console.log(state);   
     $.ajax({
       url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
       method: "GET"
@@ -72,4 +134,4 @@ function getStateData(){
       });    
   }     
 }
-
+})  
