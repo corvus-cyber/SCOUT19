@@ -27,6 +27,7 @@ $(document).ready(function(){
     $(".location-entry").css("display","none");
   }
 
+  
     //retrieve national counts
     $.ajax({
       url: "https://covidtracking.com/api/v1/us/current.json",
@@ -34,7 +35,8 @@ $(document).ready(function(){
     })
       .then(function(response) {
       console.log(response);
-      $(".nat-day").text("As of: " + response[0].date);
+      var date = moment(response[0].date, "YYYYMMDD");
+      $(".nat-day").text("Updated on: " + date.format("MMM Do YYYY"));
       $(".nat-pos").text("Total confirmed cases: " + response[0].positive.toLocaleString()); 
       $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease.toLocaleString());
       $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently.toLocaleString());
@@ -60,7 +62,8 @@ function getStateData(){
       .then(function(response) {
       console.log(response);
       $("#state-name").text(response.state);
-      $(".state-day").text("Updated at: " + response.checkTimeEt);
+      var date = moment(response.date, "YYYYMMDD");
+      $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
       $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
       $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
       $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
