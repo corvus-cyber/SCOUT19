@@ -1,76 +1,8 @@
 $(document).ready(function(){
     //Will need an if statement so that it does not run if there is no value in the state search
 
-// function stateAbbr(input){
-//   var states = [
-//     ['arizona', 'AZ'],
-//     ['alabama', 'AL'],
-//     ['alaska', 'AK'],
-//     ['arkansas', 'AR'],
-//     ['california', 'CA'],
-//     ['colorado', 'CO'],
-//     ['connecticut', 'CT'],
-//     ['delaware', 'DE'],
-//     ['florida', 'FL'],
-//     ['georgia', 'GA'],
-//     ['hawaii', 'HI'],
-//     ['idaho', 'ID'],
-//     ['illinois', 'IL'],
-//     ['indiana', 'IN'],
-//     ['iowa', 'IA'],
-//     ['kansas', 'KS'],
-//     ['kentucky', 'KY'],
-//     ['louisiana', 'LA'],
-//     ['maine', 'ME'],
-//     ['maryland', 'MD'],
-//     ['massachusetts', 'MA'],
-//     ['michigan', 'MI'],
-//     ['minnesota', 'MN'],
-//     ['mississippi', 'MS'],
-//     ['missouri', 'MO'],
-//     ['montana', 'MT'],
-//     ['nebraska', 'NE'],
-//     ['nevada', 'NV'],
-//     ['new hampshire', 'NH'],
-//     ['new jersey', 'NJ'],
-//     ['new mexico', 'NM'],
-//     ['new york', 'NY'],
-//     ['north carolina', 'NC'],
-//     ['north dakota', 'ND'],
-//     ['ohio', 'OH'],
-//     ['oklahoma', 'OK'],
-//     ['oregon', 'OR'],
-//     ['pennsylvania', 'PA'],
-//     ['rhode island', 'RI'],
-//     ['south carolina', 'SC'],
-//     ['south dakota', 'SD'],
-//     ['tennessee', 'TN'],
-//     ['texas', 'TX'],
-//     ['utah', 'UT'],
-//     ['vermont', 'VT'],
-//     ['virginia', 'VA'],
-//     ['washington', 'WA'],
-//     ['west virginia', 'WV'],
-//     ['wisconsin', 'WI'],
-//     ['wyoming', 'WY'],
-// ];
-//   for(i = 0; i < states.length; i++){
-//   if(input === states[i][0]){
-//       return(states[i][1]);
-//   }
-// }
-// }
 
 
-  // $("#current-location").click(function(event){
-  //   event.preventDefault();
-  //   if ($(".validate").val() === "") {
-  //     alert("Please enter state initial")
-  //     } else {
-  //       displayStateData();
-  //       // getStateData();
-  //     }
-  // })
 
   $("#state-search").click(function(event){
     event.preventDefault();
@@ -78,6 +10,7 @@ $(document).ready(function(){
       alert("Please enter state initial")
       } else {
         displayStateData();
+
         getStateData();
       }
   })
@@ -95,7 +28,7 @@ $(document).ready(function(){
       method: "GET"
     })
       .then(function(response) {
-      console.log(response);
+      // console.log(response);
       var date = moment(response[0].date, "YYYYMMDD");
       $(".nat-day").text("Updated on: " + date.format("MMM Do YYYY"));
       $(".nat-pos").text("Total confirmed cases: " + response[0].positive.toLocaleString()); 
@@ -107,6 +40,44 @@ $(document).ready(function(){
 
 
 
+      //This function changes spelled out state names to state abbreviation
+        function convert_state(name, to) {
+          var name = name.toUpperCase();
+          var states = new Array(                         {'name':'Alabama', 'abbrev':'AL'},          {'name':'Alaska', 'abbrev':'AK'},
+              {'name':'Arizona', 'abbrev':'AZ'},          {'name':'Arkansas', 'abbrev':'AR'},         {'name':'California', 'abbrev':'CA'},
+              {'name':'Colorado', 'abbrev':'CO'},         {'name':'Connecticut', 'abbrev':'CT'},      {'name':'Delaware', 'abbrev':'DE'},
+              {'name':'Florida', 'abbrev':'FL'},          {'name':'Georgia', 'abbrev':'GA'},          {'name':'Hawaii', 'abbrev':'HI'},
+              {'name':'Idaho', 'abbrev':'ID'},            {'name':'Illinois', 'abbrev':'IL'},         {'name':'Indiana', 'abbrev':'IN'},
+              {'name':'Iowa', 'abbrev':'IA'},             {'name':'Kansas', 'abbrev':'KS'},           {'name':'Kentucky', 'abbrev':'KY'},
+              {'name':'Louisiana', 'abbrev':'LA'},        {'name':'Maine', 'abbrev':'ME'},            {'name':'Maryland', 'abbrev':'MD'},
+              {'name':'Massachusetts', 'abbrev':'MA'},    {'name':'Michigan', 'abbrev':'MI'},         {'name':'Minnesota', 'abbrev':'MN'},
+              {'name':'Mississippi', 'abbrev':'MS'},      {'name':'Missouri', 'abbrev':'MO'},         {'name':'Montana', 'abbrev':'MT'},
+              {'name':'Nebraska', 'abbrev':'NE'},         {'name':'Nevada', 'abbrev':'NV'},           {'name':'New Hampshire', 'abbrev':'NH'},
+              {'name':'New Jersey', 'abbrev':'NJ'},       {'name':'New Mexico', 'abbrev':'NM'},       {'name':'New York', 'abbrev':'NY'},
+              {'name':'North Carolina', 'abbrev':'NC'},   {'name':'North Dakota', 'abbrev':'ND'},     {'name':'Ohio', 'abbrev':'OH'},
+              {'name':'Oklahoma', 'abbrev':'OK'},         {'name':'Oregon', 'abbrev':'OR'},           {'name':'Pennsylvania', 'abbrev':'PA'},
+              {'name':'Rhode Island', 'abbrev':'RI'},     {'name':'South Carolina', 'abbrev':'SC'},   {'name':'South Dakota', 'abbrev':'SD'},
+              {'name':'Tennessee', 'abbrev':'TN'},        {'name':'Texas', 'abbrev':'TX'},            {'name':'Utah', 'abbrev':'UT'},
+              {'name':'Vermont', 'abbrev':'VT'},          {'name':'Virginia', 'abbrev':'VA'},         {'name':'Washington', 'abbrev':'WA'},
+              {'name':'West Virginia', 'abbrev':'WV'},    {'name':'Wisconsin', 'abbrev':'WI'},        {'name':'Wyoming', 'abbrev':'WY'}
+              );
+          var returnthis = false;
+          $.each(states, function(index, value){
+              if (to == 'name') {
+                  if (value.abbrev == name){
+                      returnthis = value.name;
+                      return false;
+                  }
+              } else if (to == 'abbrev') {
+                  if (value.name.toUpperCase() == name){
+                      returnthis = value.abbrev;
+                      return false;
+                  }
+              }
+          });
+          return returnthis;
+      }
+      
 function getStateData(){
   //retrieve state counts
   if ($(".validate").val() === "") {
@@ -115,6 +86,10 @@ function getStateData(){
   }
   else {
     var state = $(".validate").val().toLowerCase();
+    if (state.length > 2) {
+      console.log(state.length);
+      state = convert_state(state, "abbrev").toLowerCase();
+    }
     // var state = stateAbbr(userInput);
     console.log(state);   
     $.ajax({
