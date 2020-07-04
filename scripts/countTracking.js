@@ -28,7 +28,7 @@ $(document).ready(function(){
   }
 
 function getStateData(){
-        ////////cannot be blank input   
+  //retrieve state counts
   if ($(".validate").val() === "") {
     alert("Please enter state initial");
     $(".validate").text("Please enter a state initial");
@@ -45,14 +45,13 @@ function getStateData(){
       $("#state-name").text(response.state);
       $(".state-day").text("Updated at: " + response.checkTimeEt);
       $(".state-pos").text("Total confirmed Cases: " + response.positive);
+      $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease);
       $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently);
       $(".state-recov").text("Cumulative Recovered: " + response.recovered);
-      $(".state-deaths").text("Cumulative Death: " + response.recovered);
+      $(".state-deaths").text("Cumulative Death: " + response.death);
       });    
   }     
 }
-
-  
 
   //retrieve national counts
   $.ajax({
@@ -63,12 +62,9 @@ function getStateData(){
     console.log(response);
     $(".nat-day").text("As of: " + response[0].date);
     $(".nat-pos").text("Total confirmed cases: " + response[0].positive); 
+    $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease);
     $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently);
     $(".recovered").text("Cumulative Recovered: " + response[0].recovered);
     $(".deaths").text("Cumulative Death: " + response[0].death);
     });
-
-
-  
-
   })  
