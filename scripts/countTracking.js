@@ -7,10 +7,12 @@ $(document).ready(function(){
   $("#state-search").click(function(event){
     event.preventDefault();
     if ($(".validate").val() === "") {
-      alert("Please enter state initial")
+      var pElm = $("<p>").text("Please enter a state name").css({"color": "red",
+                                                                  "margin-top": "0"
+                                                                });
+      $(".input-field").append(pElm);
       } else {
         displayStateData();
-
         getStateData();
       }
   })
@@ -87,8 +89,8 @@ function getStateData(){
   else {
     var state = $(".validate").val().toLowerCase();
     if (state.length > 2) {
-      console.log(state.length);
       state = convert_state(state, "abbrev").toLowerCase();
+      console.log(state);
     }
     // var state = stateAbbr(userInput);
     console.log(state);   
