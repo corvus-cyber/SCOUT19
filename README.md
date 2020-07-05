@@ -65,3 +65,6 @@ https://newsignature.github.io/us-map/
 
 The State-Name-to-Abbreviation function (function convert_state(name, to) {}) was retrieved from the following website:  
 https://joshlevinson.me/2013/03/29/javascript-to-convert-between-states-and-abbreviations/
+
+All national and state data are retrieved from the COVID Tracking Project:  
+https://covidtracking.com/
