@@ -62,6 +62,9 @@ BACK END: Sam Greilick (Map API, third party), Dilan Li (Covid Tracking Api), Da
 Awesome rapheal/jquery/svg map that made my life so easy.
 https://newsignature.github.io/us-map/
 
+Thanks for da states
+https://gist.github.com/bubblerun/a624de5b4fa8ff0980010054a7220977
+
 ## Credit
 State name to abbreviation function:  
 GitHub: calebgrove  
