@@ -1,7 +1,5 @@
 
 
-let rsdfed = "red"
-
 let stateAbbreviations = [
   'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
   'HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA',
@@ -93,7 +91,7 @@ var simplemaps_usmap_mapdata={
     HI: {
       name: "Hawaii",
       description: "default",
-      color: rsdfed,
+      color: "red",
       hover_color: "default",
       url: "default"
     },
@@ -821,21 +819,41 @@ var simplemaps_usmap_mapdata={
   }
 };
 
+let name = " "
 let counter = 0
-for (let i = 0; i < stateAbbreviations.length; i++) {
-  let name = simplemaps_usmap_mapdata.state_specific[stateAbbreviations[i]]
+$.ajax({
+  url: "https://covidtracking.com/api/v1/states/current.json",
+  method: "GET"
+})
+.then(function(response) {
+console.log(response);
+
+  let caseUpDay = (response[0].totalTestResults/response[0].positiveIncrease)
+
+  console.log(stateAbbreviations.length)
+  console.log(caseUpDay)
+  console.log(response[0].state)
+  console.log(response[0].positiveIncrease)
+  console.log(response[0].totalTestResults)
 
 
-  
+  for (let i = 0; i < stateAbbreviations.length; i++) {
+    name = simplemaps_usmap_mapdata.state_specific[stateAbbreviations[i]]
+    let abbrv = stateAbbreviations[i]
+    console.log("The number of new cases in "+abbrv,'is '+ response[i].totalTestResults/response[i].positiveIncrease);
+    name.color = "blue"
+    counter ++
+    console.log(name)
+    console.log(name.color)
+    console.log(counter)
+    console.log(stateAbbreviations.length)
+  } 
+
+
+ });
 
 
 
 
-
-counter ++
-  console.log(name)
-console.log(counter)
-console.log(stateAbbreviations.length)
-}
 
 
