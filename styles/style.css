@@ -36,6 +36,13 @@ main {
     margin: 4%;
 }
 
+.large-screen-mapo{
+    max-width: 100%;
+    border-radius: 5%;
+    padding: 5%; 
+    margin: 4%;
+}
+
 
 .national-data{
     max-width: 100%;
@@ -117,7 +124,7 @@ h5 {
 }
 
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
     .container .row .interactive-map #map {
         height: 300px;
         width: 400px;
@@ -194,7 +201,7 @@ h5 {
         height: 200px;
         width: 250px;
     }
-}
+} */
 
 .state-options {
     display: block!important;
