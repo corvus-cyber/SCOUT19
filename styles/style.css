@@ -36,11 +36,12 @@ main {
     margin: 4%;
 }
 
-.large-screen-mapo{
+.large-screen-map{
     max-width: 100%;
     border-radius: 5%;
     padding: 5%; 
     margin: 4%;
+    box-shadow: 0px;
 }
 
 
