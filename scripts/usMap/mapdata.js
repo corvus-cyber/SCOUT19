@@ -1,37 +1,37 @@
 
 
 let stateAbbreviations = [
-  'AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA',
-  'HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA',
-  'MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND',
-  'OH','OK','OR','PA','RI','SC','SD','TN','TX','UT',
-  'VT','VA','WA','WV','WI','WY'
- ];
+  'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
+  'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA',
+  'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND',
+  'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT',
+  'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+];
 // increase per day/total tested
 
 
 
 
-var simplemaps_usmap_mapdata={
+var simplemaps_usmap_mapdata = {
   main_settings: {
     //General settings
-		width: "responsive", //or 'responsive'
+    width: "responsive", //or 'responsive'
     background_color: "#FFFFFF",
     background_transparent: "yes",
     popups: "detect",
-    
-		//State defaults
-		state_description: "State description",
+
+    //State defaults
+    state_description: "State description",
     state_color: "#88A4BC",
     state_hover_color: "#3B729F",
-    
+
     border_size: 1.5,
     border_color: "#ffffff",
     all_states_inactive: "no",
     all_states_zoomable: "no",
-    
-		//Location defaults
-		location_description: "Location description",
+
+    //Location defaults
+    location_description: "Location description",
     location_color: "#FF0067",
     location_opacity: 0.8,
     location_hover_opacity: 1,
@@ -43,16 +43,16 @@ var simplemaps_usmap_mapdata={
     location_hover_border: 2.5,
     all_locations_inactive: "no",
     all_locations_hidden: "no",
-    
-		//Label defaults
-		label_color: "#ffffff",
+
+    //Label defaults
+    label_color: "#ffffff",
     label_hover_color: "#ffffff",
     label_size: 22,
     label_font: "Arial",
     hide_labels: "no",
-   
-		//Zoom settings
-		manual_zoom: "no",
+
+    //Zoom settings
+    manual_zoom: "no",
     back_image: "no",
     arrow_box: "no",
     navigation_size: "40",
@@ -66,17 +66,17 @@ var simplemaps_usmap_mapdata={
     zoom_out_incrementally: "yes",
     zoom_percentage: 0.99,
     zoom_time: 0.5,
-    
-		//Popup settings
-		popup_color: "white",
+
+    //Popup settings
+    popup_color: "white",
     popup_opacity: 0.9,
     popup_shadow: 1,
     popup_corners: 5,
     popup_font: "12px/1.5 Verdana, Arial, Helvetica, sans-serif",
     popup_nocss: "no",
-    
-		//Advanced settings
-		div: "map",
+
+    //Advanced settings
+    div: "map",
     auto_load: "yes",
     rotate: "0",
     url_new_tab: "yes",
@@ -85,8 +85,8 @@ var simplemaps_usmap_mapdata={
     fade_time: 0.1,
     link_text: "View Website"
   },
-  
-  
+
+
   state_specific: {
     HI: {
       name: "Hawaii",
@@ -818,39 +818,46 @@ var simplemaps_usmap_mapdata={
     }
   }
 };
-
+let APIresponse = ""
 let name = " "
+let caseUpDay = " "
 let counter = 0
 $.ajax({
   url: "https://covidtracking.com/api/v1/states/current.json",
   method: "GET"
 })
-.then(function(response) {
-console.log(response);
+  .then(function (response) {
+    console.log(response);
 
-  let caseUpDay = (response[0].totalTestResults/response[0].positiveIncrease)
-
-  console.log(stateAbbreviations.length)
-  console.log(caseUpDay)
-  console.log(response[0].state)
-  console.log(response[0].positiveIncrease)
-  console.log(response[0].totalTestResults)
-
-
-  for (let i = 0; i < stateAbbreviations.length; i++) {
-    name = simplemaps_usmap_mapdata.state_specific[stateAbbreviations[i]]
-    let abbrv = stateAbbreviations[i]
-    console.log("The number of new cases in "+abbrv,'is '+ response[i].totalTestResults/response[i].positiveIncrease);
-    name.color = "blue"
-    counter ++
-    console.log(name)
-    console.log(name.color)
-    console.log(counter)
-    console.log(stateAbbreviations.length)
-  } 
-
-
- });
+    //caseUpDay = (response[0].totalTestResults / response[0].positiveIncrease)
+    // console.log("caseUpDay "+caseUpDay);
+    // console.log(stateAbbreviations.length)
+    // console.log(caseUpDay)
+    // console.log(response[0].state)
+    // console.log(response[0].positiveIncrease)
+    // console.log(response[0].totalTestResults)
+    APIresponse = response
+  })
+  .then(function(params) {
+    console.log("then caseupday "+caseUpDay)
+    console.log("Api response "+ JSON.stringify (APIresponse))
+    
+    console.log(caseUpDay)
+    for (let i = 0; i < stateAbbreviations.length; i++) {
+      caseUpDay = ( (APIresponse[i].positiveIncrease / APIresponse[i].totalTestResults)*10000)
+      name = simplemaps_usmap_mapdata.state_specific[stateAbbreviations[i]]
+      let abbrv = stateAbbreviations[i]
+      console.log(APIresponse[i].positiveIncrease)
+      console.log("The number of new cases in " + abbrv, 'is ' + caseUpDay);
+      name.color = "blue"
+      counter++
+      // console.log(name)
+      // console.log(name.color)
+      // console.log(counter)
+      // console.log(stateAbbreviations.length)
+      // console.log(caseUpDay)
+    }
+})
 
 
 
