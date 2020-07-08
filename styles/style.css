@@ -2,7 +2,7 @@
     background-color: steelblue;
 }
 .img-logo {
-    display: inline-block;
+    display: block;
     height: 100%;
     position: relative;
 }
@@ -60,8 +60,14 @@ p{
     font-family: 'Saira Condensed', sans-serif;
 }
 
+.nat-header{
+    margin-bottom: 0%;
+    padding: 4%;
+}
 .nat-data{
-    padding: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
 }
 
 .nat-day{
@@ -84,7 +90,7 @@ p{
 }
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
-    padding: 3%
+    padding-bottom: 0%;
 }
 
 .location-entry{
@@ -133,7 +139,6 @@ h5 {
     background-color: steelblue;
     text-align: center;
 }
-
 
 
 /* .container .row .interactive-map #map {
