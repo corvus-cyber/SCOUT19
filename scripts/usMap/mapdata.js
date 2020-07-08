@@ -1,12 +1,3 @@
-
-
-let stateAbbreviations = [
-  'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-  'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA',
-  'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND',
-  'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT',
-  'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
-];
 // increase per day/total tested
 
 
@@ -828,7 +819,7 @@ $.ajax({
   method: "GET"
 })
   .then(function (response) {
-    //console.log(response);
+    console.log(response);
 
     // caseUpDay = (response[0].totalTestResults / response[0].positiveIncrease)
     // console.log("caseUpDay "+caseUpDay);
@@ -842,61 +833,50 @@ $.ajax({
   })
   
   .then(function() {
+    console.log("then caseupday "+caseUpDay)
+    console.log("Api response "+ JSON.stringify (APIresponse))
+    console.log(caseUpDay)
 
-console.log("f off")
+    for (let i = 0; i < APIresponse.length; i++) {
+      console.log(APIresponse)
 
+      //gets state tag and saves as var
+      stAbbvr = APIresponse[i].state
+      console.log(stAbbvr)
+      console.log(APIresponse[i].totalTestResultsIncrease)
+      console.log(APIresponse[i].positiveIncrease)
 
+      //gets api response and divides
+      caseUpDay = ((APIresponse[i].positiveIncrease/APIresponse[i].totalTestResultsIncrease)*100)
+      console.log(caseUpDay)
 
-
-
-
-    
-    
-    //console.log("then caseupday "+caseUpDay)
-    //console.log("Api response "+ JSON.stringify (APIresponse))
-    
-    //console.log(caseUpDay)
-    //for (let i = 0; i < APIresponse.length; i++) {
-      // console.log(APIresponse)
-      // // //gets state tag and saves as var
-      // // stAbbvr = APIresponse[i].state
-      // // console.log(stAbbvr)
-      // // console.log(APIresponse[i].totalTestResultsIncrease)
-      // // console.log(APIresponse[i].positiveIncrease)
-      // // //gets api response and divides
-      // // caseUpDay = ((APIresponse[0].positiveIncrease/APIresponse[0].totalTestResultsIncrease)*100)
-      // // console.log(caseUpDay)
-      // //saves map state
-      // stColor = simplemaps_usmap_mapdata.state_specific["UT"]
-      // console.log (simplemaps_usmap_mapdata.state_specific["UT"])
-      // //sets state color
+      //saves color rules to be inserted into stylesheet as variables 
+      let ruleRed = "path.sm_state_"+stAbbvr+" {fill: red; }"
+      let ruleYellow = "path.sm_state_"+stAbbvr+" {fill: yellow; }"
+      let ruleOrange = "path.sm_state_"+stAbbvr+" {fill: orange; }"
       
-      // console.log(simplemaps_usmap_mapdata.state_specific["UT"].color)
-      
-    
-    
-      
-      //let abbrv = stateAbbreviations[i]
+      //gets the style sheet from DOM and saves it into a variable
+      let sheet = window.document.styleSheets[5];
+      console.log(sheet) 
+
+      //sets conditions for color rules to be applied to style sheet DOM object
+      if (caseUpDay >= 10 ) {
+        sheet.insertRule(ruleRed,0);
+      }
+      else if (caseUpDay < 1) {
+        sheet.insertRule(ruleYellow,0);
+      } 
+      else  {
+        sheet.insertRule(ruleOrange,0);
+      }
 
 
 
-      // console.log(abbrv)
-      // console.log(i)
-      // caseUpDay = ( APIresponse[i].positiveIncrease/APIresponse[i].totalTestResultsIncrease )
-      // name = simplemaps_usmap_mapdata.state_specific[stateAbbreviations[i]]
-      // console.log(name)
-      // // console.log(name)
-      // name.color = "red"
 
       
-      // console.log(APIresponse[abbrv].totalTestResultsIncrease)
-      // console.log(APIresponse[abbrv].positiveIncrease)
-      // console.log("The number of new cases in " + abbrv, 'is ' + caseUpDay);
         
       
-      // if (caseUpDay > 1 ) {
-      //     name.color = "yellow"
-      //   }
+
 
 
 
@@ -905,31 +885,7 @@ console.log("f off")
 
      
     
-      // console.log(name)
-      // console.log(name.color)
-      // console.log(counter)
-      // console.log(stateAbbreviations.length)
-      // console.log(caseUpDay)
-    //}
-})
 
-
-// var mappy = document.getElementById("mappy")
-
-
-
-
-//   // create a new div element 
-//   var newDiv = document.createElement("div");
-//   var newScript = document.createElement("script")
-//   newDiv.setAttribute("id", "mapppppppp"); 
-//   newScript.setAttribute("src","src=scripts/usMap/usmap.js")
-//   // and give it some content 
-
-//   // add the newly created element and its content into the DOM 
-//   var currentDiv = document.getElementById("div1"); 
- 
-//   mappy.appendChild(newDiv)
-//   document.body.appendChild(newScript); 
+  }});
 
 
