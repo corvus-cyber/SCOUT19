@@ -2,7 +2,7 @@
     background-color: steelblue;
 }
 .img-logo {
-    display: inline-block;
+    display: block;
     height: 100%;
     position: relative;
 }
@@ -30,17 +30,29 @@ main {
 .interactive-map{
     max-width: 100%;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 2%;
     padding: 5%; 
     box-shadow: 0 0 20px; 
     margin: 4%;
 }
 
+.large-screen-map{
+    max-width: 100%;
+    border-radius: 5%;
+    padding: 5%; 
+    margin: 4%;
+    box-shadow: 0px;
+}
+
+p{
+   font-family: 'Saira Condensed', sans-serif;
+   font-size: 20px;
+}
 
 .national-data{
     max-width: 100%;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 2%;
     padding: 5%; 
     box-shadow: 0 0 20px;
     margin: 4%;
@@ -48,24 +60,43 @@ main {
     font-family: 'Saira Condensed', sans-serif;
 }
 
+.nat-header{
+    margin-bottom: 0%;
+    padding: 4%;
+}
+.nat-data{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.nat-day{
+    font-style: italic;
+    font-size: 12px;
+}
+
 .state-data{
     max-width: 100%;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 2%;
     padding: 5%; 
     box-shadow: 0 0 20px;
     font-size: 20px;
     font-family: 'Saira Condensed', sans-serif;
 }
-
+.state-day{
+    font-style: italic;
+    font-size: 12px; 
+}
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
+    padding-bottom: 0%;
 }
 
 .location-entry{
     max-width: 100%;
     background-color: white;
-    border-radius: 5%;
+    border-radius: 2%;
     padding: 5%; 
     box-shadow: 0 0 20px;
     text-align: center;
@@ -110,14 +141,13 @@ h5 {
 }
 
 
-
-.container .row .interactive-map #map {
+/* .container .row .interactive-map #map {
     height: 300px;
     width: auto;
-}
+} */
 
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
     .container .row .interactive-map #map {
         height: 300px;
         width: 400px;
@@ -143,16 +173,16 @@ h5 {
         width: 320px;
         height: 300px;
     }
-}
+}*/
 
-@media only screen and (max-width: 900px) {
-    .container .row .interactive-map #map {
+/* @media only screen and (max-width: 900px) {
+    .container .row .interactive-map #boxmap #map {
         height: 300px;
         width: 600px;
     }
-}
+} */
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
     .container .row .interactive-map #map {
         height: 300px;
         width: 500px;
@@ -194,7 +224,7 @@ h5 {
         height: 200px;
         width: 250px;
     }
-}
+}  */
 
 .state-options {
     display: block!important;
