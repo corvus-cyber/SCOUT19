@@ -32,12 +32,12 @@ $(document).ready(function(){
       .then(function(response) {
       // console.log(response);
       var date = moment(response[0].date, "YYYYMMDD");
-      $(".nat-day").text("Updated on: " + date.format("MMM Do YYYY"));
-      $(".nat-pos").text("Total confirmed cases: " + response[0].positive.toLocaleString()); 
-      $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease.toLocaleString());
+      $(".nat-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
+      $(".nat-pos").text("Total Confirmed Cases: " + response[0].positive.toLocaleString()); 
+      $(".nat-pos-increase").text("New Cases: " + response[0].positiveIncrease.toLocaleString());
       $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently.toLocaleString());
-      $(".recovered").text("Cumulative Recovered: " + response[0].recovered.toLocaleString());
-      $(".deaths").text("Cumulative Death: " + response[0].death.toLocaleString());
+      $(".recovered").text("Recovered: " + response[0].recovered.toLocaleString());
+      $(".deaths").text("Fatalities: " + response[0].death.toLocaleString());
       });
 
 
@@ -102,22 +102,16 @@ function getStateData(){
       console.log(response);
       $("#state-name").text(response.state);
       var date = moment(response.date, "YYYYMMDD");
-      $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
-      $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
-      $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
+      $(".state-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
+      $(".state-pos").text("Total Confirmed Cases: " + response.positive.toLocaleString());
+      $(".state-pos-increase").text("New Cases: " + response.positiveIncrease.toLocaleString());
       $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
-      $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
-      $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
+      $(".state-recov").text("Recovered: " + response.recovered.toLocaleString());
+      $(".state-deaths").text("Fatalities: " + response.death.toLocaleString());
       });    
   }     
 }
 
-
-//event listener for the navbar, required by materialize 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, options);
-});
 
 
 $(document).ready(function() {

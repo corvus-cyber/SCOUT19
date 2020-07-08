@@ -30,85 +30,68 @@
             <!--Navigation bar-->
             <div class="nav-wrapper">
                 <a href="" class="img-logo"><img src="./logo/Novibrations.png"></a>
-                <!-- <a href="" class="brand-logo">SCOUT19</a> -->
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
-                </ul>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-        </ul>
     </header>
     <main>
         <!--  -->
         <div class="container">
             <!--Interactive map-->
             <div class="row">
-                <div class="col s12 m12 l7 interactive-map responsive-img">
+                <div class="col s12 m12 l7 interactive-map" id="boxmap">
+                    <h2>State Grade</h2>
                     <div id="map"></div>
+                    <p>Each state is color-coded using the following metric: Increase in cases per day divided by the total number tested in that state. This was done to ensure that the scoring was not biased against high-population areas.</p>
                 </div>
+            
                 <!--National Info-->
                 <div class="col s12 m12 l4 national-data">
                     <div class="row nat-header">
                         <h2>National Info</h2>
                     </div>
                     <div class="row nat-data">
-                        <div>To ensure accuracy, data is updated between 5pm and 6pm Eastern Time every day.</div>
-                        <!--Nation graph data-->
-                        <div class="col s12 m6 l6 nat-chart">
-                        </div>
-                        <!--National cases in the last day-->
-                        <div class="col s12 m5 l6 nat-day">
-                        </div>
-                        <!--National positive cases-->
-                        <div class="col s12 m5 l6 nat-pos">
-                        </div>
                         <!-- National daily positive increase -->
-                        <div class="col s12 m5 l6 nat-pos-increase">
-                        </div>
-                        <!--National number of those hospitalized-->
-                        <div class="col s12 m5 l6 nat-hospital">
+                        <div class="col s12 m12 l12 nat-pos-increase">
                         </div>
                         <!--National number of those recovered-->
-                        <div class="col s12 m5 l6 recovered">
+                        <div class="col s12 m12 l12 recovered">
                         </div>
                         <!--National number of those dead-->
-                        <div class="col s12 m5 l6 deaths">
+                        <div class="col s12 m12 l12 deaths">
+                        </div>
+                        <!--National number of those hospitalized-->
+                        <div class="col s12 m12 l12 nat-hospital">
+                        </div>
+                        <!--National positive cases-->
+                        <div class="col s12 m12 l12 nat-pos">
+                        </div>
+                        <!--Updated last-->
+                        <div class="col s12 m12 l12 nat-day">
                         </div>
                     </div>
                 </div>
             </div>
-            <!--State Info-->
             <div class="row state-data evaporate">
                 <div class="row state-header">
                     <h2>State Info (<span id="state-name"></span>)</h2>
                 </div>
-                <div class="row">To ensure accuracy, data is updated between 5pm and 6pm Eastern Time every day.</div>
-                <!--State cases in the last day-->
-                <div class="row state-day">
-                </div>
-                <!--State positive cases-->
-                <div class="row state-pos">
-                </div>
                 <!-- State daily positive increase -->
                 <div class="row state-pos-increase">
-                </div>
-                <!--State number of those hospitalized-->
-                <div class="row state-hospital">
                 </div>
                 <!--State number of those recovered-->
                 <div class="row state-recov">
                 </div>
                 <!--State number of those dead-->
                 <div class="row state-deaths">
+                </div>
+                <!--State number of those hospitalized-->
+                <div class="row state-hospital">
+                </div>
+                <!--State positive cases-->
+                <div class="row state-pos">
+                </div>
+                <!--State cases in the last day-->
+                <div class="row state-day">
                 </div>
             </div>
             
@@ -131,13 +114,13 @@
                             <div class="col s12">
 
                                 <!--button to search using user's input-->
-                                <button class="btn-large waves-effect waves-light grey" type="submit" name="action"
+                                <button class="btn-large waves-effect waves-light grey" type="submit" name="action" href="searchstate.html"
                                     id="state-search">search
                                     <!-- <i class="material-icons right">location_searching</i> -->
                                 </button>
                             </div>
                             <div class="col s12">
-                                <button class="btn-large waves-effect waves-light grey" type="submit" name="action"
+                                <button class="btn-large waves-effect waves-light grey" type="submit" name="action" href="searchstate.html"
                                     id="current-location">Use Current Location </button>
                             </div>
                         </div>
@@ -184,6 +167,7 @@
     <script src="scripts/mapControler.js"></script>
     <script src="scripts/usMap/mapdata.js"></script>
     <script src="scripts/usMap/usmap.js"></script>
+    <script src="scripts/javascript.js"></script>
 
 </body>
 
