@@ -28,12 +28,12 @@ $(document).ready(function() {
             console.log(response);
             $("#state-name").text(response.state);
             var date = moment(response.date, "YYYYMMDD");
-            $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
-            $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
-            $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
+            $(".state-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
+            $(".state-pos").text("Total Confirmed Cases: " + response.positive.toLocaleString());
+            $(".state-pos-increase").text("New Cases: " + response.positiveIncrease.toLocaleString());
             $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
-            $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
-            $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
+            $(".state-recov").text("Recovered: " + response.recovered.toLocaleString());
+            $(".state-deaths").text("Fatalities: " + response.death.toLocaleString());
             });    
       }
 
