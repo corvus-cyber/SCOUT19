@@ -557,6 +557,7 @@
                     return "none";
                 }
             });
+            
         } else {
             var i = g.doc.createElement("i");
             i.title = "Rapha\xebl Colour Picker";
