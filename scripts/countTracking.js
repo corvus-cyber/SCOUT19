@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
   var instances = M.Sidenav.init(elems, options);
 });
 
+if ($(window).width() > 500){
+  console.log("hello", $(window).width())
+ $("#boxmap").removeClass("interactive-map").addClass("large-screen-map");
+  console.log($("#map").html())
+}
+
  //if the "Use Current Location" button is clicked, user's current ip will be set as default state
   $('#current-location').click(function(event){
     event.preventDefault();
@@ -19,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(state)
       //use state retrieved from geolocator to get state data
       getStateData(state);
+      stateChart(state);
       displayStateData();
     });
   })
@@ -45,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         state = convert_state(state, "abbrev").toLowerCase();
       }
       getStateData(state);
+      stateChart(state);
       displayStateData();
     }
   })
@@ -52,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function displayStateData() {
     $(".national-data").css("display", "none");
     $(".state-data").css("display", "block");
+    $("#myChart").css("display", "block");
     $(".location-entry").css("display", "none");
   }
 
@@ -130,6 +139,74 @@ document.addEventListener('DOMContentLoaded', function() {
       $(".state-deaths").text("Fatalities: " + response.death.toLocaleString());
       });    
   }     
+
+
+function stateChart(state){
+  $.ajax({
+    url: "https://covidtracking.com/api/v1/states/" + state + "/daily.json",
+    method: "GET"
+  })
+    .then(function (response) {
+      console.log(response);
+      var dates = [];
+      for (i=13; i>=0; i--){
+        dates.push(moment(response[i].date, "YYYYMMDD").format("MMDD"));
+      }
+      var dailyNewCases = [];
+      for (i=13; i>=0; i--){
+        dailyNewCases.push(response[i].positiveIncrease)
+      }
+
+//potential chart
+var ctx = document.getElementById('myChart');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: dates,
+        datasets: [{
+            label: 'Daily New Cases',
+            data: dailyNewCases,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 1500
+                }
+            }]
+        }
+    }
+});
+
+      });
+}
+
+
+
+
+
+
+
 
 })
 
