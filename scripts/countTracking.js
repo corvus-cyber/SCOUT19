@@ -49,13 +49,13 @@ $(document).ready(function () {
     .then(function (response) {
       // console.log(response);
       var date = moment(response[0].date, "YYYYMMDD");
-      $(".nat-day").text("Updated on: " + date.format("MMM Do YYYY"));
-      $(".nat-pos").text("Total confirmed cases: " + response[0].positive.toLocaleString());
-      $(".nat-pos-increase").text("Positive Increase: " + response[0].positiveIncrease.toLocaleString());
+      $(".nat-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
+      $(".nat-pos").text("Total Confirmed Cases: " + response[0].positive.toLocaleString()); 
+      $(".nat-pos-increase").text("New Cases: " + response[0].positiveIncrease.toLocaleString());
       $(".nat-hospital").text("Currently Hospitalized: " + response[0].hospitalizedCurrently.toLocaleString());
-      $(".recovered").text("Cumulative Recovered: " + response[0].recovered.toLocaleString());
-      $(".deaths").text("Cumulative Death: " + response[0].death.toLocaleString());
-    });
+      $(".recovered").text("Recovered: " + response[0].recovered.toLocaleString());
+      $(".deaths").text("Fatalities: " + response[0].death.toLocaleString());
+      });
 
 
 
@@ -113,16 +113,68 @@ $(document).ready(function () {
       url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
       method: "GET"
     })
-      .then(function (response) {
-        console.log(response);
-        $("#state-name").text(response.state);
-        var date = moment(response.date, "YYYYMMDD");
-        $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
-        $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
-        $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
-        $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
-        $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
-        $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
-      });
-  }
-})  
+      .then(function(response) {
+      console.log(response);
+      $("#state-name").text(response.state);
+      var date = moment(response.date, "YYYYMMDD");
+      $(".state-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
+      $(".state-pos").text("Total Confirmed Cases: " + response.positive.toLocaleString());
+      $(".state-pos-increase").text("New Cases: " + response.positiveIncrease.toLocaleString());
+      $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
+      $(".state-recov").text("Recovered: " + response.recovered.toLocaleString());
+      $(".state-deaths").text("Fatalities: " + response.death.toLocaleString());
+      });    
+  }     
+
+
+
+
+    
+    
+  
+
+  $('#current-location').click(function(event){
+  event.preventDefault();
+  var queryURL = "https://api.ipgeolocation.io/ipgeo?apiKey=8cbff660df8f427d8169bea14803ed60";
+  
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+
+  }).then(function(response) {
+    console.log(response);
+    var state = response.state_prov.substring(0,2).toLowerCase();
+    console.log(state)
+    getStateData(state);
+    displayStateData();
+    
+    //use state retrieved from geolocator to get state data
+    function getStateData(state){
+        $.ajax({
+          url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
+          method: "GET"
+        })
+          .then(function(response) {
+          console.log(response);
+          $("#state-name").text(response.state);
+          var date = moment(response.date, "YYYYMMDD");
+          $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
+          $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
+          $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
+          $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
+          $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
+          $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
+          });    
+    }
+
+    function displayStateData(){
+      $(".national-data").css("display","none");
+      $(".state-data").css("display","block");
+      $(".location-entry").css("display","none");
+    }
+
+
+  });
+})
+})
+
