@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+//event listener for the navbar, required by materialize 
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, options);
+});
+
  //if the "Use Current Location" button is clicked, user's current ip will be set as default state
   $('#current-location').click(function(event){
     event.preventDefault();
