@@ -1,36 +1,45 @@
 $(document).ready(function () {
-  //Will need an if statement so that it does not run if there is no value in the state search
 
-
+ //if the "Use Current Location" button is clicked, user's current ip will be set as default state
+  $('#current-location').click(function(event){
+    event.preventDefault();
+    var queryURL = "https://api.ipgeolocation.io/ipgeo?apiKey=8cbff660df8f427d8169bea14803ed60";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+      var state = response.state_prov.substring(0,2).toLowerCase();
+      console.log(state)
+      //use state retrieved from geolocator to get state data
+      getStateData(state);
+      displayStateData();
+    });
+  })
 
 
   $("#state-search").click(function (event) {
     event.preventDefault();
+    //input cannot be blank
     if ($(".validate").val() === "") {
-      var pElm = $("<p>").empty();
-      pElm.text("State name cannot be empty").css({
-        "color": "red",
-        "margin-top": "0"
-      });
-      $(".input-field").append(pElm);
-    } else if ($(".validate").val().length === 2 && !convert_state($(".validate").val(), "name")) {
-      var pElm = $("<p>").empty();
-      pElm.text("Please enter a valid state name").css({
-        "color": "red",
-        "margin-top": "0"
-      });
-      $(".input-field").append(pElm);
-    } else if ($(".validate").val().length > 2 && !convert_state($(".validate").val(), "abbrev")) {
-      var pElm = $("<p>").empty();
-      pElm.text("Please enter a valid state name").css({
-        "color": "red",
-        "margin-top": "0"
-      });
-      $(".input-field").append(pElm);
-    }
+      $(".error-message").empty();
+      $(".error-message").text("State name cannot be empty");
+    } //pop up message if state abbreviation is spelled wrong
+    else if ($(".validate").val().length === 2 && !convert_state($(".validate").val(), "name")) {
+      $(".error-message").empty();
+      $(".error-message").text("Please enter a valid state name");
+    } //pop up mesage if state name is spelled wrong 
+    else if ($(".validate").val().length > 2 && !convert_state($(".validate").val(), "abbrev")) {
+      $(".error-message").empty();
+      $(".error-message").text("Please enter a valid state name");
+    } // if state is correct, display corresponding state data
     else {
+      var state = $(".validate").val().toLowerCase();
+      if (state.length > 2) {
+        state = convert_state(state, "abbrev").toLowerCase();
+      }
+      getStateData(state);
       displayStateData();
-      getStateData();
     }
   })
 
@@ -97,18 +106,8 @@ $(document).ready(function () {
     return returnthis;
   }
 
-  state = convert_state("ojfalfjdslaf", "abbrev");
-  console.log(state);
-
-
-  function getStateData() {
-    var state = $(".validate").val().toLowerCase();
-    console.log("in else statement");
-    if (state.length > 2) {
-      state = convert_state(state, "abbrev").toLowerCase();
-      console.log(state);
-    }
-    console.log(state);
+  // this function takes in user input as state, and uses that input to retrieve data
+  function getStateData(state) {
     $.ajax({
       url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
       method: "GET"
@@ -126,55 +125,5 @@ $(document).ready(function () {
       });    
   }     
 
-
-
-
-    
-    
-  
-
-  $('#current-location').click(function(event){
-  event.preventDefault();
-  var queryURL = "https://api.ipgeolocation.io/ipgeo?apiKey=8cbff660df8f427d8169bea14803ed60";
-  
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-
-  }).then(function(response) {
-    console.log(response);
-    var state = response.state_prov.substring(0,2).toLowerCase();
-    console.log(state)
-    getStateData(state);
-    displayStateData();
-    
-    //use state retrieved from geolocator to get state data
-    function getStateData(state){
-        $.ajax({
-          url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
-          method: "GET"
-        })
-          .then(function(response) {
-          console.log(response);
-          $("#state-name").text(response.state);
-          var date = moment(response.date, "YYYYMMDD");
-          $(".state-day").text("Updated on: " + date.format("MMM Do YYYY"));
-          $(".state-pos").text("Total confirmed Cases: " + response.positive.toLocaleString());
-          $(".state-pos-increase").text("Positive Increase: " + response.positiveIncrease.toLocaleString());
-          $(".state-hospital").text("Currently Hospitalized: " + response.hospitalizedCurrently.toLocaleString());
-          $(".state-recov").text("Cumulative Recovered: " + response.recovered.toLocaleString());
-          $(".state-deaths").text("Cumulative Death: " + response.death.toLocaleString());
-          });    
-    }
-
-    function displayStateData(){
-      $(".national-data").css("display","none");
-      $(".state-data").css("display","block");
-      $(".location-entry").css("display","none");
-    }
-
-
-  });
-})
 })
 

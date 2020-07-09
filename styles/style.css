@@ -75,6 +75,11 @@ p{
     font-size: 12px;
 }
 
+.error-message {
+    color: red;
+    margin-top: 0;
+}
+
 .state-data{
     max-width: 100%;
     background-color: white;
