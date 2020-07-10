@@ -849,10 +849,11 @@ $.ajax({
       console.log(stCasePerc)
       //saves color rules to be inserted into stylesheet as variables 
       let ruleRed = "path.sm_state_"+stAbbvr+" {fill: red; }"
-      let ruleYffff00 = "path.sm_state_"+stAbbvr+" {fill: #ffff00; }"
-      let ruleYffd600 = "path.sm_state_"+stAbbvr+" {fill: #ffd600; }"
-      let ruleOff7c00 = "path.sm_state_"+stAbbvr+" {fill: #ff7c00; }"
-      let ruleff5600 = "path.sm_state_"+stAbbvr+" {fill: #ff5600; }"
+      let Rule1 = "path.sm_state_"+stAbbvr+" {fill: #ffff00; }"
+      let Rule2 = "path.sm_state_"+stAbbvr+" {fill: #ffd600; }"
+      let Rule3 = "path.sm_state_"+stAbbvr+" {fill: #ff7c00; }"
+      let Rule4 = "path.sm_state_"+stAbbvr+" {fill: #ff5600; }"
+      let Rule5 = "path.sm_state_"+stAbbvr+" {fill: #ff5600; }"
       
       let ruleNAN = "path.sm_state_"+stAbbvr+" {fill: black; }"
       
@@ -864,27 +865,32 @@ $.ajax({
       if (caseUpDay > 12 ) {
         sheet.insertRule(ruleRed,0);
       }
+      //Rule 1 yellow 1
       else if (caseUpDay <= 1) {
-        sheet.insertRule(ruleYffff00,0);
+        sheet.insertRule(Rule1,0);
       } 
+      //Rule 2 yellow 2
       else if (caseUpDay >1 && caseUpDay <=3) {
-        sheet.insertRule(ruleYffd600,0);
+        sheet.insertRule(Rule2,0);
       } 
+      //Rule 3 orange 1
       else if (caseUpDay >3 && caseUpDay <=6) {
-        sheet.insertRule(ruleOff7c00,0);
+        sheet.insertRule(Rule3,0);
       } 
+      //Rule 4 orange 2
       else if (caseUpDay >6 && caseUpDay <=9) {
-        sheet.insertRule(ruleff5600,0);
+        sheet.insertRule(Rule4,0);
       } 
+      //Rule 5 red 1
       else if (caseUpDay >9 && caseUpDay <=12) {
-        sheet.insertRule(ruleff5600,0);
+        sheet.insertRule(Rule5,0);
       } 
 
       else if (caseUpDay = "NULL" || "nan" ) {
         sheet.insertRule(ruleNAN,0);
       }
       else  {
-        console.log("hi")
+        console.log("What did you do?")
       }
       
 
