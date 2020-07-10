@@ -105,6 +105,11 @@ h2 {
     padding-bottom: 0%;
 }
 
+h3 {
+    font-family: 'Saira Condensed', sans-serif; 
+    padding-bottom: 0%; 
+}
+
 .location-entry{
     max-width: 100%;
     background-color: white;
