@@ -27,6 +27,8 @@ if ($(window).width() > 500){
       getStateData(state);
       stateChart(state);
       displayStateData();
+      $(".chart-State").removeClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
     });
   })
 
@@ -54,6 +56,8 @@ if ($(window).width() > 500){
       getStateData(state);
       stateChart(state);
       displayStateData();
+      $(".chart-State").removeClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
     }
   })
 
@@ -62,6 +66,10 @@ if ($(window).width() > 500){
     $(".state-data").css("display", "block");
     $("#myChart").css("display", "block");
     $(".location-entry").css("display", "none");
+    
+      // If the search button or the current location button is clicked, 
+      // it will add class evaporate to interactive-map. If those same buttons
+      // are pressed, it will also remove class evaporate from chart-State
   }
 
 
