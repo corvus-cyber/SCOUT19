@@ -4,7 +4,7 @@ var simplemaps_usmap_mapdata = {
     width: "responsive", //or 'responsive'
     background_color: "#FFFFFF",
     background_transparent: "yes",
-    popups: "detect",
+    popups: "off",
 
     //State defaults
     state_description: "State description",
@@ -79,14 +79,16 @@ var simplemaps_usmap_mapdata = {
       description: "default",
       color: "default",
       hover_color: "default",
-      url: "default"
+      url: "default",
+      border_color: "black",
     },
     AK: {
       name: "Alaska",
       description: "default",
       color: "default",
       hover_color: "default",
-      url: "default"
+      url: "default",
+      border_color: "black",
     },
     FL: {
       name: "Florida",
@@ -568,7 +570,7 @@ var simplemaps_usmap_mapdata = {
     },
     HI: {
       parent_id: "HI",
-      x: 305,
+      x: 300,
       y: 565,
       pill: "yes"
     },
@@ -856,19 +858,23 @@ $.ajax({
       let Rule6Red = "path.sm_state_"+stAbbvr+" {fill: #990000; }"
       let Rule7NAN = "path.sm_state_"+stAbbvr+" {fill: grey; }"
       
+
+
       //gets the style sheet from DOM and saves it into a variable
       let sheet = window.document.styleSheets[5];
       console.log(sheet) 
 
       //sets conditions for color rules to be applied to style sheet DOM object
-      
+
       //Rule 1 Green 1
       if (caseUpDay <= 1) {
         sheet.insertRule(Rule1,0);
+        
       } 
       //Rule 2 Yellow 1
       else if (caseUpDay >1 && caseUpDay <=5) {
         sheet.insertRule(Rule2,0);
+        sheet.insertRule("text.sm_label_"+stAbbvr+" {fill: black; }");
       } 
       //Rule 3 Yellow 2
       else if (caseUpDay >5 && caseUpDay <=10) {
@@ -894,6 +900,7 @@ $.ajax({
       else  {
         console.log("What did you do?")
       }
+
 
   }});
 
