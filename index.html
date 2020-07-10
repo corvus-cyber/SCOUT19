@@ -71,31 +71,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row state-data evaporate">
-                <div class="row state-header">
-                    <h2>State Info (<span id="state-name"></span>)</h2>
-                </div>
-                <!-- State daily positive increase -->
-                <div class="row state-pos-increase">
-                </div>
-                <!--State number of those recovered-->
-                <div class="row state-recov">
-                </div>
-                <!--State number of those dead-->
-                <div class="row state-deaths">
-                </div>
-                <!--State number of those hospitalized-->
-                <div class="row state-hospital">
-                </div>
-                <!--State positive cases-->
-                <div class="row state-pos">
-                </div>
-                <!--State cases in the last day-->
-                <div class="row state-day">
+                <div class="col s12 m12 l7 chart-State evaporate">
+                    <h2>New Cases Within The Last Two Weeks</h2>
+                    <canvas id="myChart" width="300px" height="300px"></canvas>
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="row state-data evaporate">
+                    <div class="row state-header">
+                        <h2>State Info (<span id="state-name"></span>)</h2>
+                    </div>
+                    <!-- State daily positive increase -->
+                    <div class="col s12 m5 l5 state-pos-increase">
+                    </div>
+                    <!--State number of those recovered-->
+                    <div class="col s12 m5 l5 state-recov">
+                    </div>
+                    <!--State number of those dead-->
+                    <div class="col s12 m5 l5 state-deaths">
+                    </div>
+                    <!--State number of those hospitalized-->
+                    <div class="col s12 m5 l5 state-hospital">
+                    </div>
+                    <!--State positive cases-->
+                    <div class="col s12 m5 l5 state-pos">
+                    </div>
+                    <!--State cases in the last day-->
+                    <div class="col s12 m5 l5 state-day">
+                    </div>
+                </div>   
+            </div>
             <!--User inputs state name to search for specific info-->
             <div class="row location-entry">
                 <form class="col s12 form">
@@ -129,9 +134,6 @@
             </div>
         </div>
 
- <!-- potential state chart -->
-    <canvas id="myChart" width="400" height="400"></canvas>
-
     </main>
 
 
@@ -142,10 +144,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="scripts/countTracking.js"></script>
-    <script src="scripts/geolocator.js"></script>
+    <script src="scripts/mapControler.js"></script>
     <script src="scripts/usMap/mapdata.js"></script>
     <script src="scripts/usMap/usmap.js"></script>
-    <script src="scripts/javascript.js"></script>
+
 
 </body>
 
