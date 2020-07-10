@@ -154,7 +154,7 @@ function stateChart(state){
       console.log(response);
       var dates = [];
       for (i=13; i>=0; i--){
-        dates.push(moment(response[i].date, "YYYYMMDD").format("MMDD"));
+        dates.push(moment(response[i].date, "YYYYMMDD").format("MM"+"/"+"DD"));
       }
       var dailyNewCases = [];
       for (i=13; i>=0; i--){
