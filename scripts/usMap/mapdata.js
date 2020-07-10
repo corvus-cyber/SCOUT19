@@ -4,7 +4,7 @@ var simplemaps_usmap_mapdata = {
     width: "responsive", //or 'responsive'
     background_color: "#FFFFFF",
     background_transparent: "yes",
-    popups: "detect",
+    popups: "off",
 
     //State defaults
     state_description: "State description",
@@ -79,14 +79,16 @@ var simplemaps_usmap_mapdata = {
       description: "default",
       color: "default",
       hover_color: "default",
-      url: "default"
+      url: "default",
+      border_color: "black",
     },
     AK: {
       name: "Alaska",
       description: "default",
       color: "default",
       hover_color: "default",
-      url: "default"
+      url: "default",
+      border_color: "black",
     },
     FL: {
       name: "Florida",
@@ -568,7 +570,7 @@ var simplemaps_usmap_mapdata = {
     },
     HI: {
       parent_id: "HI",
-      x: 305,
+      x: 300,
       y: 565,
       pill: "yes"
     },
@@ -848,46 +850,56 @@ $.ajax({
       stCasePerc.push( JSON.stringify(caseUpDay))
       console.log(stCasePerc)
       //saves color rules to be inserted into stylesheet as variables 
-      let ruleRed = "path.sm_state_"+stAbbvr+" {fill: red; }"
-      let ruleYffff00 = "path.sm_state_"+stAbbvr+" {fill: #ffff00; }"
-      let ruleYffd600 = "path.sm_state_"+stAbbvr+" {fill: #ffd600; }"
-      let ruleOff7c00 = "path.sm_state_"+stAbbvr+" {fill: #ff7c00; }"
-      let ruleff5600 = "path.sm_state_"+stAbbvr+" {fill: #ff5600; }"
+      let Rule1 = "path.sm_state_"+stAbbvr+" {fill: #339933; }"
+      let Rule2 = "path.sm_state_"+stAbbvr+" {fill: #ffff00; }"
+      let Rule3 = "path.sm_state_"+stAbbvr+" {fill: #ffc000; }"
+      let Rule4 = "path.sm_state_"+stAbbvr+" {fill: #ff9700; }"
+      let Rule5 = "path.sm_state_"+stAbbvr+" {fill: #ff3300; }"
+      let Rule6Red = "path.sm_state_"+stAbbvr+" {fill: #990000; }"
+      let Rule7NAN = "path.sm_state_"+stAbbvr+" {fill: grey; }"
       
-      let ruleNAN = "path.sm_state_"+stAbbvr+" {fill: black; }"
-      
+
+
       //gets the style sheet from DOM and saves it into a variable
       let sheet = window.document.styleSheets[5];
       console.log(sheet) 
 
       //sets conditions for color rules to be applied to style sheet DOM object
-      if (caseUpDay > 12 ) {
-        sheet.insertRule(ruleRed,0);
-      }
-      else if (caseUpDay <= 1) {
-        sheet.insertRule(ruleYffff00,0);
-      } 
-      else if (caseUpDay >1 && caseUpDay <=3) {
-        sheet.insertRule(ruleYffd600,0);
-      } 
-      else if (caseUpDay >3 && caseUpDay <=6) {
-        sheet.insertRule(ruleOff7c00,0);
-      } 
-      else if (caseUpDay >6 && caseUpDay <=9) {
-        sheet.insertRule(ruleff5600,0);
-      } 
-      else if (caseUpDay >9 && caseUpDay <=12) {
-        sheet.insertRule(ruleff5600,0);
-      } 
 
+      //Rule 1 Green 1
+      if (caseUpDay <= 1) {
+        sheet.insertRule(Rule1,0);
+        
+      } 
+      //Rule 2 Yellow 1
+      else if (caseUpDay >1 && caseUpDay <=5) {
+        sheet.insertRule(Rule2,0);
+        sheet.insertRule("text.sm_label_"+stAbbvr+" {fill: black; }");
+      } 
+      //Rule 3 Yellow 2
+      else if (caseUpDay >5 && caseUpDay <=10) {
+        sheet.insertRule(Rule3,0);
+      } 
+      //Rule 4 Yellow 3
+      else if (caseUpDay >10 && caseUpDay <=15) {
+        sheet.insertRule(Rule4,0);
+      } 
+      //Rule 5 Red 1
+      else if (caseUpDay >15 && caseUpDay <=20) {
+        sheet.insertRule(Rule5,0);
+      } 
+      //Rule 6 Red 2
+      else if(caseUpDay > 20 ) {
+        sheet.insertRule(Rule6Red,0);
+      }
+      //Rule 7 Grey
       else if (caseUpDay = "NULL" || "nan" ) {
-        sheet.insertRule(ruleNAN,0);
+        sheet.insertRule(Rule7NAN,0);
       }
+      //Nothing else should be showing up, what did you do, how did you do it?
       else  {
-        console.log("hi")
+        console.log("What did you do?")
       }
-      
-
 
 
   }});

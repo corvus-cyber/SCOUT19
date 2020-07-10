@@ -27,6 +27,8 @@ if ($(window).width() > 500){
       getStateData(state);
       stateChart(state);
       displayStateData();
+      $(".chart-State").removeClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
     });
   })
 
@@ -54,6 +56,8 @@ if ($(window).width() > 500){
       getStateData(state);
       stateChart(state);
       displayStateData();
+      $(".chart-State").removeClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
     }
   })
 
@@ -151,7 +155,7 @@ function stateChart(state){
       //data for datas on State Chart
       var dates = [];
       for (i=13; i>=0; i--){
-        dates.push(moment(response[i].date, "YYYYMMDD").format("MMDD"));
+        dates.push(moment(response[i].date, "YYYYMMDD").format("MM"+"/"+"DD"));
       }
       //data for new case on State Chart 
       var dailyNewCases = [];
@@ -191,11 +195,23 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [{
+              
                 ticks: {
                     suggestedMin: 0,
                     suggestedMax: 1500
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'New Cases'
                 }
-            }]
+                
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
         }
     }
 });
