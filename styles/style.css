@@ -75,6 +75,11 @@ p{
     font-size: 12px;
 }
 
+.error-message {
+    color: red;
+    margin-top: 0;
+}
+
 .state-data{
     max-width: 100%;
     background-color: white;
@@ -84,10 +89,17 @@ p{
     font-size: 20px;
     font-family: 'Saira Condensed', sans-serif;
 }
+
 .state-day{
     font-style: italic;
     font-size: 12px; 
 }
+
+#myChart{
+    display: none;
+    margin: 40px 0 40px 0;
+}
+
 h2 {
     font-family: 'Saira Condensed', sans-serif; 
     padding-bottom: 0%;
@@ -229,3 +241,6 @@ h5 {
 .state-options {
     display: block!important;
 }
+
+
+
