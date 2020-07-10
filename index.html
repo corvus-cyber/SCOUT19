@@ -108,7 +108,7 @@
                             <i class="material-icons prefix">location_city</i>
                             <input id="icon_prefix" type="text" class="validate">
                             <label for="icon_prefix">Location</label>
-
+                            <p class="error-message"></p>
                         </div>
 
                         <div class="row">
@@ -128,30 +128,9 @@
                 </form>
             </div>
         </div>
-        <!-- <div class="row table">
-            <div class="col s12">
-                <div class='tableauPlaceholder' id='viz1593896362803' style='position: relative'><noscript><a
-                            href='https:&#47;&#47;covidtracking.com&#47;'><img alt=' '
-                                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HP&#47;HP4FRS623&#47;1_rss.png'
-                                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='path' value='shared&#47;HP4FRS623' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image'
-                            value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;HP&#47;HP4FRS623&#47;1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en' />
-                        <param name='origin' value='viz_share_link' /></object>
-                </div>
-            </div>
-        </div>
-        <script
-            type='text/javascript'> var divElement = document.getElementById('viz1593896362803'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1000px'; vizElement.style.height = '627px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement); </script> -->
+
+ <!-- potential state chart -->
+    <canvas id="myChart" width="400" height="400"></canvas>
 
     </main>
 
@@ -159,7 +138,7 @@
     <footer class="page-footer">
         Team Bowie ©2020
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="scripts/countTracking.js"></script>
