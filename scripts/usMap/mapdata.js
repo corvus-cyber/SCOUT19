@@ -69,7 +69,7 @@ var simplemaps_usmap_mapdata = {
     images_directory: "default",
     import_labels: "no",
     fade_time: 0.1,
-    link_text: "View Website"
+    link_text: ""
   },
 
 
@@ -477,27 +477,11 @@ var simplemaps_usmap_mapdata = {
     }
   },
   locations: {
-    "0": {
-      name: "New York",
-      lat: 40.71,
-      lng: -74,
-      description: "default",
-      color: "default",
-      url: "default",
-      type: "default",
-      size: "default"
-    },
-    "1": {
-      name: "Anchorage",
-      lat: 61.2180556,
-      lng: -149.9002778,
-      color: "default",
-      type: "circle"
-    }
+ 
   },
   labels: {
     NH: {
-      parent_id: "NH",
+      parent_id: "",
       x: "932",
       y: "183",
       pill: "yes",
@@ -505,7 +489,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     VT: {
-      parent_id: "VT",
+      parent_id: "",
       x: "883",
       y: "243",
       pill: "yes",
@@ -513,7 +497,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     RI: {
-      parent_id: "RI",
+      parent_id: "",
       x: "932",
       y: "273",
       pill: "yes",
@@ -521,7 +505,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     NJ: {
-      parent_id: "NJ",
+      parent_id: "",
       x: "883",
       y: "273",
       pill: "yes",
@@ -529,7 +513,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     DE: {
-      parent_id: "DE",
+      parent_id: "",
       x: "883",
       y: "303",
       pill: "yes",
@@ -537,7 +521,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     MD: {
-      parent_id: "MD",
+      parent_id: "",
       x: "932",
       y: "303",
       pill: "yes",
@@ -545,7 +529,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     DC: {
-      parent_id: "DC",
+      parent_id: "",
       x: "884",
       y: "332",
       pill: "yes",
@@ -553,7 +537,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     MA: {
-      parent_id: "MA",
+      parent_id: "",
       x: "932",
       y: "213",
       pill: "yes",
@@ -561,7 +545,7 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     CT: {
-      parent_id: "CT",
+      parent_id: "",
       x: "932",
       y: "243",
       pill: "yes",
@@ -569,10 +553,10 @@ var simplemaps_usmap_mapdata = {
       display: "all"
     },
     HI: {
-      parent_id: "HI",
+      parent_id: "",
       x: 300,
       y: 565,
-      pill: "yes"
+      pill: "none"
     },
     AK: {
       parent_id: "AK",
@@ -855,10 +839,11 @@ $.ajax({
       let Rule3 = "path.sm_state_"+stAbbvr+" {fill: #ffc000; }"
       let Rule4 = "path.sm_state_"+stAbbvr+" {fill: #ff9700; }"
       let Rule5 = "path.sm_state_"+stAbbvr+" {fill: #ff3300; }"
-      let Rule6Red = "path.sm_state_"+stAbbvr+" {fill: #990000; }"
+      let Rule6Red = "path.sm_state_"+stAbbvr+" {fill: #c40e0e; }"
+      let Rule7Red = "path.sm_state_"+stAbbvr+" {fill: #990000; }"
       let Rule7NAN = "path.sm_state_"+stAbbvr+" {fill: grey; }"
       
-
+      
 
       //gets the style sheet from DOM and saves it into a variable
       let sheet = window.document.styleSheets[5];
@@ -888,9 +873,13 @@ $.ajax({
       else if (caseUpDay >15 && caseUpDay <=20) {
         sheet.insertRule(Rule5,0);
       } 
-      //Rule 6 Red 2
-      else if(caseUpDay > 20 ) {
+      //Rule 5 Red 1
+      else if (caseUpDay >20 && caseUpDay <=25) {
         sheet.insertRule(Rule6Red,0);
+      } 
+      //Rule 6 Red 2
+      else if(caseUpDay > 25 ) {
+        sheet.insertRule(Rule7Red,0);
       }
       //Rule 7 Grey
       else if (caseUpDay = "NULL" || "nan" ) {
@@ -900,8 +889,12 @@ $.ajax({
       else  {
         console.log("What did you do?")
       }
+      
 
+  }
+  
 
-  }});
+  
+});
 
 

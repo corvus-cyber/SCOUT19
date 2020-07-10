@@ -242,6 +242,10 @@ h5 {
         width: 250px;
     }
 }  */
+.mapLegend span{
+    font-weight: bold;
+    white-space: nowrap;
+}
 
 .state-options {
     display: block!important;
