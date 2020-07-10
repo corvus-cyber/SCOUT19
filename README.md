@@ -2,9 +2,18 @@
 --PANDEMIC SCOUT--
 
 # Description
-Mobile based application that dynamically displays covid-19 data by state and across the nation. 
+- Tracks covid outbreaks across the United States
+- Has a U.S map that is updated with the spread of Covid, highlighting most afflicted states
+- Shows live national data
+- Allows the user to search for data about a specific state (either by using their IP or manually entering the state name or initials).
+- Produces a chart for that state showing positive tests rate in the past two weeks
 
-API's used
+
+# Elevator Pitch 
+In these unique times, it can feel overwhelming and inconvenient trying to decide where to get your information about what is going on with Covid. This is a problem Team Bowie constantly dealt with as we, like many of you, seek to stay up to date on the latest developments. To combat this issue, we have built  a mobile-first application that will keep national and state data about this pandemic in a single, easy to navigate location. 
+
+
+# API's used
 https://covidtracking.com/ - to identify Covid-19 data by state 
 https://simplemaps.com - to identify Covid-19 data for the nation to color code the US Map
 https://api.ipgeolocation.io/ipgeo?apiKey=8cbff660df8f427d8169bea14803ed60
@@ -35,15 +44,22 @@ BACK END: Sam Greilick, Dilan Li, David Grant
 - As we made it a mobile first application we decided that it would be best to drop the background on the map as the size of the screen got larger so as to look better for every setting size.
 - Collaboration went pretty well but we still have some more to learn about working in pairs as we were more accustomed to splitting up responsibilities and each working on our own thing which still worked out well in the end.
 
+# What We Learned:
+- How to adapt and work with a new css framework 
+- How to make api's and third-party api's responsive to a mobile first ui
+- 
+
+# Future Development: 
+- Use Query strings so that we could build multiple htmls that would save the user’s searched state so they could share the latest data on social media.  
+- 
+
+
 # GitHub Link to Deployed website
 https://corvus-cyber.github.io/SCOUT19/
 
 # ScreenShot of Finished website
-![]assets/Screen%20Shot%202020-07-09%20at%207.48.33%20PM.png
-![]assets/Image%207-9-20%20at%207.48%20PM.jpeg
-
-
-
+![screenshot of the main page](./assets/mainpage.png)
+![screenshot of the state page](./assets/statepage.png)
 
 
 ## Special thanks and Accreditations
