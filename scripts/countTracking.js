@@ -148,16 +148,18 @@ function stateChart(state){
   })
     .then(function (response) {
       console.log(response);
+      //data for datas on State Chart
       var dates = [];
       for (i=13; i>=0; i--){
         dates.push(moment(response[i].date, "YYYYMMDD").format("MMDD"));
       }
+      //data for new case on State Chart 
       var dailyNewCases = [];
       for (i=13; i>=0; i--){
         dailyNewCases.push(response[i].positiveIncrease)
       }
 
-//potential chart
+//State Chart
 var ctx = document.getElementById('myChart');
 
 var myChart = new Chart(ctx, {
