@@ -1,8 +1,3 @@
-// increase per day/total tested
-
-
-
-
 var simplemaps_usmap_mapdata = {
   main_settings: {
     //General settings
@@ -814,13 +809,14 @@ let stColor = " "
 let caseUpDay = " "
 let counter = 0
 let stAbbvr = ""
+stCasePerc = ["ONE"];
 $.ajax({
   url: "https://covidtracking.com/api/v1/states/current.json",
   method: "GET"
 })
   .then(function (response) {
     console.log(response);
-
+    ////Troubleshooting console.logs
     // caseUpDay = (response[0].totalTestResults / response[0].positiveIncrease)
     // console.log("caseUpDay "+caseUpDay);
     // console.log(stateAbbreviations.length)
@@ -839,7 +835,7 @@ $.ajax({
 
     for (let i = 0; i < APIresponse.length; i++) {
       console.log(APIresponse)
-
+       
       //gets state tag and saves as var
       stAbbvr = APIresponse[i].state
       console.log(stAbbvr)
@@ -849,42 +845,50 @@ $.ajax({
       //gets api response and divides
       caseUpDay = ((APIresponse[i].positiveIncrease/APIresponse[i].totalTestResultsIncrease)*100)
       console.log(caseUpDay)
-
+      stCasePerc.push( JSON.stringify(caseUpDay))
+      console.log(stCasePerc)
       //saves color rules to be inserted into stylesheet as variables 
       let ruleRed = "path.sm_state_"+stAbbvr+" {fill: red; }"
-      let ruleYellow = "path.sm_state_"+stAbbvr+" {fill: yellow; }"
-      let ruleOrange = "path.sm_state_"+stAbbvr+" {fill: orange; }"
+      let ruleYffff00 = "path.sm_state_"+stAbbvr+" {fill: #ffff00; }"
+      let ruleYffd600 = "path.sm_state_"+stAbbvr+" {fill: #ffd600; }"
+      let ruleOff7c00 = "path.sm_state_"+stAbbvr+" {fill: #ff7c00; }"
+      let ruleff5600 = "path.sm_state_"+stAbbvr+" {fill: #ff5600; }"
+      
+      let ruleNAN = "path.sm_state_"+stAbbvr+" {fill: black; }"
       
       //gets the style sheet from DOM and saves it into a variable
       let sheet = window.document.styleSheets[5];
       console.log(sheet) 
 
       //sets conditions for color rules to be applied to style sheet DOM object
-      if (caseUpDay >= 10 ) {
+      if (caseUpDay > 12 ) {
         sheet.insertRule(ruleRed,0);
       }
-      else if (caseUpDay < 1) {
-        sheet.insertRule(ruleYellow,0);
+      else if (caseUpDay <= 1) {
+        sheet.insertRule(ruleYffff00,0);
       } 
-      else  {
-        sheet.insertRule(ruleOrange,0);
+      else if (caseUpDay >1 && caseUpDay <=3) {
+        sheet.insertRule(ruleYffd600,0);
+      } 
+      else if (caseUpDay >3 && caseUpDay <=6) {
+        sheet.insertRule(ruleOff7c00,0);
+      } 
+      else if (caseUpDay >6 && caseUpDay <=9) {
+        sheet.insertRule(ruleff5600,0);
+      } 
+      else if (caseUpDay >9 && caseUpDay <=12) {
+        sheet.insertRule(ruleff5600,0);
+      } 
+
+      else if (caseUpDay = "NULL" || "nan" ) {
+        sheet.insertRule(ruleNAN,0);
       }
-
-
-
-
-      
-        
+      else  {
+        console.log("hi")
+      }
       
 
 
-
-
-
-
-
-     
-    
 
   }});
 
