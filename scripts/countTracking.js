@@ -29,6 +29,8 @@ if ($(window).width() > 500){
       displayStateData();
       $(".chart-State").removeClass("evaporate")
       $(".interactive-map").addClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
+
     });
   })
 
@@ -58,6 +60,7 @@ if ($(window).width() > 500){
       displayStateData();
       $(".chart-State").removeClass("evaporate");
       $(".interactive-map").addClass("evaporate");
+      $(".large-screen-map").addClass("evaporate");
     }
   })
 
