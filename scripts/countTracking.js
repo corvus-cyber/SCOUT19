@@ -154,7 +154,7 @@ function stateChart(state){
       console.log(response);
       var dates = [];
       for (i=13; i>=0; i--){
-        dates.push(moment(response[i].date, "YYYYMMDD").format("MMDD"));
+        dates.push(moment(response[i].date, "YYYYMMDD").format("MM"+"/"+"DD"));
       }
       var dailyNewCases = [];
       for (i=13; i>=0; i--){
@@ -193,23 +193,29 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [{
+              
                 ticks: {
                     suggestedMin: 0,
                     suggestedMax: 1500
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'New Cases'
                 }
-            }]
+                
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
         }
     }
 });
 
       });
 }
-
-
-
-
-
-
 
 
 })
