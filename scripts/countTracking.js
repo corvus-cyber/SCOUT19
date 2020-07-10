@@ -193,11 +193,23 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [{
+              
                 ticks: {
                     suggestedMin: 0,
                     suggestedMax: 1500
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'New Cases'
                 }
-            }]
+                
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
         }
     }
 });
