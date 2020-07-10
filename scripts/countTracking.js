@@ -27,8 +27,8 @@ if ($(window).width() > 500){
       getStateData(state);
       stateChart(state);
       displayStateData();
-      $(".chart-State").removeClass("evaporate");
-      $(".large-screen-map").addClass("evaporate");
+      $(".chart-State").removeClass("evaporate")
+      $(".interactive-map").addClass("evaporate");
     });
   })
 
@@ -57,7 +57,7 @@ if ($(window).width() > 500){
       stateChart(state);
       displayStateData();
       $(".chart-State").removeClass("evaporate");
-      $(".large-screen-map").addClass("evaporate");
+      $(".interactive-map").addClass("evaporate");
     }
   })
 
@@ -152,16 +152,18 @@ function stateChart(state){
   })
     .then(function (response) {
       console.log(response);
+      //data for datas on State Chart
       var dates = [];
       for (i=13; i>=0; i--){
         dates.push(moment(response[i].date, "YYYYMMDD").format("MM"+"/"+"DD"));
       }
+      //data for new case on State Chart 
       var dailyNewCases = [];
       for (i=13; i>=0; i--){
         dailyNewCases.push(response[i].positiveIncrease)
       }
 
-//potential chart
+//State Chart
 var ctx = document.getElementById('myChart');
 
 var myChart = new Chart(ctx, {
