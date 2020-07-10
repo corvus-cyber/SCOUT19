@@ -2,7 +2,7 @@
 --PANDEMIC SCOUT--
 
 # Description
-Mobile based application that dynamically displays covid-19 data based on state. 
+Mobile based application that dynamically displays covid-19 data by state and across the nation. 
 
 API's used
 https://covidtracking.com/ - to identify Covid-19 data by state 
