@@ -151,6 +151,10 @@ h5 {
     text-align: center;
 }
 
+.mapLegend span{
+    font-weight: bold;
+    white-space: nowrap;
+}
 
 .state-options {
     display: block!important;
