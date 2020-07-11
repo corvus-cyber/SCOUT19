@@ -34,10 +34,10 @@ Materialize CSS
 
 ## Team:
 FRONT END: Cameron Walker, Wyatt Hancock  
-BACK END: Sam Greilick, Dilan Li, David Grant
+BACK END: Dilan Li, David Grant, Sam Greilick
 
 ## Issues Encountered and Resolved:
-- The us map we were using had a new script that we were unfamiliar with and so we had to resolve on a new api that allowed us to enter variables into the code.
+- The us map we were using had a new script that we were unfamiliar with and so we had to resolve on a new api and get very crative with learning how to edit SVGs post render.
 - The geolocator was not responding with googles geolocator and another geolocation from api.com. So we found the current one that had a very smooth response to comb through.
 - Some struggles on getting used to using branches instead of committing to the master. That is why api.js still has commits that are not pushed to the master. We had to leave some commits unpushed because they caused to many issues.
 - As we made it a mobile first application we decided that it would be best to drop the background on the map as the size of the screen got larger so as to look better for every setting size.
@@ -49,6 +49,7 @@ BACK END: Sam Greilick, Dilan Li, David Grant
 - How to make api's and third-party api's responsive to a mobile first ui
 - Working in teams
 - Realizing there could be different creative approaches to solve one problem
+- using selectors and the ability to edit SVG objects post render
 
 ## Future Development: 
 - Use Query strings so that we could build multiple htmls that would save the user’s searched state so they could share the latest data on social media.  
@@ -61,9 +62,11 @@ https://corvus-cyber.github.io/SCOUT19/
 ![screenshot of the state page](./assets/statepage.png)
 
 ## Special thanks and Accreditations
+simplemaps.com
 
-Awesome rapheal/jquery/svg map that made my life so easy.
-https://newsignature.github.io/us-map/
+
+Awesome US map that we painstakingly configured.
+https://simplemaps.com/
 
 Thanks for da states
 https://gist.github.com/bubblerun/a624de5b4fa8ff0980010054a7220977
