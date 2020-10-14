@@ -797,7 +797,7 @@ let counter = 0
 let stAbbvr = ""
 stCasePerc = ["ONE"];
 $.ajax({
-  url: "https://covidtracking.com/api/v1/states/current.json",
+  url: "https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/current.json",
   method: "GET"
 })
   .then(function (response) {
