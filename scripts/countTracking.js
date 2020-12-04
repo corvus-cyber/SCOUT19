@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 if ($(window).width() > 500){
-  console.log("hello", $(window).width())
+  // console.log("hello", $(window).width())
  $("#boxmap").removeClass("interactive-map").addClass("large-screen-map");
-  console.log($("#map").html())
+  // console.log($("#map").html())
 }
 
  //if the "Use Current Location" button is clicked, user's current ip will be set as default state
@@ -20,12 +20,12 @@ if ($(window).width() > 500){
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
-      var state = response.state_prov.substring(0,2).toLowerCase();
-      console.log(state)
+      // console.log(response);
+      var stateName = response.state_prov.substring(0,2).toLowerCase();
+      // console.log(state)
       //use state retrieved from geolocator to get state data
-      getStateData(state);
-      stateChart(state);
+      getStateData(stateName);
+      stateChart(stateName);
       displayStateData();
       $(".chart-State").removeClass("evaporate")
       $(".interactive-map").addClass("evaporate");
@@ -51,12 +51,12 @@ if ($(window).width() > 500){
       $(".error-message").text("Please enter a valid state name");
     } // if state is correct, display corresponding state data
     else {
-      var state = $(".validate").val().toLowerCase();
-      if (state.length > 2) {
-        state = convert_state(state, "abbrev").toLowerCase();
+      var stateName = $(".validate").val().toLowerCase();
+      if (stateName.length > 2) {
+        stateName = convert_state(stateName, "abbrev").toLowerCase();
       }
-      getStateData(state);
-      stateChart(state);
+      getStateData(stateName);
+      stateChart(stateName);
       displayStateData();
       $(".chart-State").removeClass("evaporate");
       $(".interactive-map").addClass("evaporate");
@@ -74,7 +74,7 @@ if ($(window).width() > 500){
 
   //retrieve national counts
   $.ajax({
-    url: "https://covidtracking.com/api/v1/us/current.json",
+    url: "https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/us/current.json",
     method: "GET"
   })
     .then(function (response) {
@@ -131,11 +131,11 @@ if ($(window).width() > 500){
   // this function takes in user input as state, and uses that input to retrieve data
   function getStateData(state) {
     $.ajax({
-      url: "https://covidtracking.com/api/v1/states/" + state + "/current.json",
+      url: "https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/" + state + "/current.json",
       method: "GET"
     })
       .then(function(response) {
-      console.log(response);
+      // console.log(response);
       $("#state-name").text(response.state);
       var date = moment(response.date, "YYYYMMDD");
       $(".state-day").text("*Updated on: " + date.format("MMM Do YYYY") + " between 5 and 6 pm EST");
@@ -150,11 +150,11 @@ if ($(window).width() > 500){
 
 function stateChart(state){
   $.ajax({
-    url: "https://covidtracking.com/api/v1/states/" + state + "/daily.json",
+    url: "https://cors-anywhere.herokuapp.com/https://covidtracking.com/api/v1/states/" + state + "/daily.json",
     method: "GET"
   })
     .then(function (response) {
-      console.log(response);
+      // console.log(response);
       //data for datas on State Chart
       var dates = [];
       for (i=13; i>=0; i--){
