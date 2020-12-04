@@ -84,10 +84,11 @@ p{
     max-width: 100%;
     background-color: white;
     border-radius: 2%;
-    padding: 5%; 
     box-shadow: 0 0 20px;
     font-size: 20px;
     font-family: 'Saira Condensed', sans-serif;
+    margin-bottom: 25px;
+    padding-bottom: 25px!important;
 }
 
 .state-day{
@@ -117,6 +118,7 @@ h3 {
     padding: 5%; 
     box-shadow: 0 0 20px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 .form {
@@ -149,7 +151,98 @@ h5 {
 .page-footer {
     background-color: steelblue;
     text-align: center;
+    padding-bottom: 20px;
 }
+
+
+.state-header {
+    margin-left: 15px!important;
+}
+
+/* .container .row .interactive-map #map {
+    height: 300px;
+    width: auto;
+} */
+
+
+/* @media only screen and (max-width: 1300px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 340px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #map {
+        width: 320px;
+        height: 300px;
+    }
+}*/
+
+/* @media only screen and (max-width: 900px) {
+    .container .row .interactive-map #boxmap #map {
+        height: 300px;
+        width: 600px;
+    }
+} */
+
+/* @media only screen and (max-width: 800px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 400px;
+    }
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    .container .row .interactive-map #map {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .container .row .interactive-map #map {
+        height: 200px;
+        width: 250px;
+    }
+}  */
 
 .mapLegend span{
     font-weight: bold;
